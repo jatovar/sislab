@@ -1,0 +1,51 @@
+body
+{
+  height: auto;
+}
+#tablaDetalle tr td
+{
+  width: 33%;
+}
+textarea
+{
+    width: 100%;
+}
+input
+{
+    width: 100%;
+}
+
+.SubTitulo
+{
+  margin-top:30px;
+  color:blue;
+}
+table thead tr th
+{
+  font-size:15px;
+  text-align:center;
+  background-color: #C3C3C3;
+}
+
+.modal-dialog
+{
+  height:600px;width:900px;
+}
+.modal-content
+{
+  height: 100%;
+}
+.modal-header
+{
+  height: 12%;
+}
+.modal-body
+{
+  margin-left: 10px;
+  height: 78%;
+  overflow-y: scroll;
+}
+.modal-footer
+{
+  height: 10%;
+}

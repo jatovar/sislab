@@ -1,0 +1,122 @@
+.Principal
+{
+  background-color:white;border: 1px solid gray;
+  width:100%;
+  padding-bottom: 50px;
+  height: 95%;
+}
+.Login
+{
+    float: right;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
+@media (min-width:1000px)
+{
+  .Principal
+  {
+    width: 90%;
+    margin-left:5%;
+    height: 100%;
+  }
+  .Login
+  {
+    right: 7%;
+  }
+
+}
+@media (max-width:800px)
+{
+  .Principal
+  {
+    width: 800px;
+  }
+  .Login
+  {
+    position: relative;
+    top:0px;
+    right: 0px;
+    margin-top: -53px;
+  }
+  .Menu
+  {
+
+  }
+}
+html,body,.Principal,#Contenido
+{
+}
+
+#Contenido
+{
+}
+body
+{
+
+  background-color: #c3c3c3;
+  margin: auto;
+  padding-bottom: 20px;
+  height:auto;
+}
+@media (max-height:600px)
+{
+
+}
+
+html{
+  height: 100%;
+}
+
+
+#Encabezado
+{
+  font-size:30px;background-color:#232E59;color:white;text-align:center; padding:25px;
+  height: 100px;
+}
+.Titulo
+{
+  margin-left: -110px;
+}
+.Logo
+{
+  position: absolute;
+  top: 12px
+}
+
+
+.Login label
+{
+  font-size: 12px;
+  color: white;
+  float: left;
+  text-align: right;
+  width: 60px;
+
+}
+.Login input
+{
+  width: 100px;
+  height: 20px;
+  float: right;
+}
+.SubTitulo
+{
+  margin-top:20px;
+  color:#052853;
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.Laboratorio
+{
+  font-size: 18px;
+  text-decoration: underline;
+}
+.imagen{
+  margin-top: -20px;
+}
+li
+{
+
+}

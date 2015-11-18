@@ -1,0 +1,27 @@
+.modal-body
+{
+  padding:10px 30px 5px 5px;
+}
+Form
+{
+  margin-left: 20px;
+}
+Form label
+{
+  color: black;
+  text-align: left;
+}
+Form .nombre
+{
+  width: 350px;
+  float: right;
+}
+Form .clave
+{
+  width: 150px;
+  float: left;
+}
+.modal-header
+{
+  padding:10px 10px; background-color: #f3f3f3;
+}

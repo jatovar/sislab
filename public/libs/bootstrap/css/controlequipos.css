@@ -1,0 +1,20 @@
+.Areas
+{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  height: 20px;
+  margin-bottom: 10px;
+
+}
+.Areas div
+{
+  background-color:#052853;
+  color:white;
+  margin-top: 5px;
+  border-radius: 5px;
+  text-align: center;
+  float: left;
+  margin-right: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

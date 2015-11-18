@@ -1,0 +1,55 @@
+.Opciones
+{
+  visibility: hidden;
+
+  position:fixed;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  padding-top: 3px;
+  border-radius: 10px;
+  opacity: 2.0;
+    background: rgba(54, 25, 25, .5);
+    width: 200px;
+}
+.Opciones a
+{
+  float: right;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  height: 30px;
+  width:100%;
+  text-align: right;
+  cursor: pointer;
+}
+.Opciones a:hover
+{
+  color:red;
+}
+.Opciones div
+{
+  padding-top: 1px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 150px;
+
+}
+.Alumnos
+{
+
+
+}
+#Tabla
+{
+
+}
+td,th
+{
+
+}
+#Tabla
+{
+  height: 350px;
+}
