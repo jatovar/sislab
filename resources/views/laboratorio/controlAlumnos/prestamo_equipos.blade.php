@@ -28,12 +28,12 @@
     <div class="form-group" style="padding: 0px 0px;">
       <span class="glyphicons glyphicons-user"></span>
       <label for="alumno"><span class="glyphicon glyphicon-user"></span> Datos del solicitante </label>
-      <select name="tipo_solicitante" class="form-control">
+      <select id="tipo_solicitante" name="tipo_solicitante" class="form-control">
         <option value="1">Alumno</option>
         <option value="0">Profesor</option>
       </select>
        </br>
-      {!!Form::Text('cve_solicitante',null, array('id'=>'cve_solicitante','class' => 'clave form-control','placeholder' => 'Clave del solicitante', 'onkeyup'=>'dameNombreAlumno()'))!!}
+      {!!Form::Text('cve_solicitante',null, array('id'=>'cve_solicitante','class' => 'clave form-control','placeholder' => 'Clave del solicitante', 'onkeyup'=>'dameNombre()'))!!}
        {!!Form::Text('nombre_solicitante',null, array('id'=>'nombre_solicitante','class' => 'nombre form-control','placeholder' => 'Nombre del solicitante','disabled' => 'disabled'))!!}
      </br>
     </br>
@@ -56,7 +56,7 @@
 
      </br>
     <label for="equipo"><span class="glyphicon glyphicon glyphicon-align-left"></span> Descripción</label></br>
-     {!!Form::Textarea('descripcion',null, array('id'='descripcion', class' => 'form-control', 'placeholder' => 'Descripción', 'size' => '48x3'))!!}
+     {!!Form::Textarea('descripcion',null, array('id'=>'descripcion', 'class' => 'form-control', 'placeholder' => 'Descripción', 'size' => '48x3'))!!}
      </br>
           </div>
         </form>

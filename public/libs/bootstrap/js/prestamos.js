@@ -8,31 +8,43 @@ $('document').ready(function() {
   });
 });
 
-function dameNombreAlumno(){
-  
+function dameNombre(){
+  if($('#cve_solicitante').val().length > 4)
+  {
+    var data = "";
+    var url = "";
+    clave = $('#cve_solicitante').val();
+
     if($('#tipo_solicitante').val()==1)
     {
-      clave = $('#cve_alumno').val();
-      var data = {
+        url = "alumno/nombre";
+        data = {
         clave_alumno: clave
       }
-
-      $.ajax({
-        url: BASE_UR + "/alumno/nombre",
-        data: data,
-        dataType:'json',
-        type:'get',
-        success: function(data) {
-          if(data.success)
-          {
-            $('#nombre_alumno').val(data.nombre);
-          }
-          else {
-            $('#nombre_alumno').val("");
+    }
+    else {
+     url = "profesor/nombre"
+     data = {
+      clave_profesor: clave
+      }
+    }
+    $.ajax({
+      url: BASE_UR + url,
+      data: data,
+      dataType:'json',
+      type:'get',
+      success: function(data) {
+        if(data.success)
+        {
+          $('#nombre_solicitante').val(data.nombre);
+        }
+        else {
+          $('#nombre_solicitante').val("");
           }
         }
       });
-  }
+    }
+
 }
 function altaPrestamo()
 {
@@ -71,7 +83,6 @@ $(document).on('click','.pagination a', function(e)
 {
   e.preventDefault();
   pagina = $(this).attr('href').split('page=')[1];
-  alert(BASE_UR);
   var data = {
     id_lab: ID_LABORATORIO,
     page: pagina

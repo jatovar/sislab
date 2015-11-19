@@ -18,9 +18,11 @@ class AlumnoController extends Controller
       $alumno = Alumno::find($clave);
       $res['nombre'] = "";
       if($alumno!=null)
+      {
         $res['nombre'] = $alumno->nombreCompleto();
+        $res ['success'] = true;
+      }
 
-      $res ['success'] = true;
     } catch (Exception $e) {
       $res['msj'] = $e->getMessage();
     }
