@@ -42,6 +42,7 @@ function dameNombre(){
           $('#nombre_solicitante').val("");
           }
         }
+      
       });
     }
 
