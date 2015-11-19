@@ -9,7 +9,7 @@ $('document').ready(function() {
 });
 
 function dameNombre(){
-  if($('#cve_solicitante').val().length > 4)
+  if($('#cve_solicitante').val().length > 2)
   {
     var data = "";
     var url = "";
@@ -42,14 +42,14 @@ function dameNombre(){
           $('#nombre_solicitante').val("");
           }
         }
-      
+
       });
     }
 
 }
 function altaPrestamo()
 {
-  var data = $("#form").serialize() + "&id_area="+id_area + "id_lab="+ID_LABORATORIO +"page="+pagina;
+  var data = $("#form").serialize() + "&id_area="+id_area + "&id_lab="+ID_LABORATORIO +"&page="+pagina;
   $.ajax({
     url: BASE_UR + "prestamo_equipo/alta",
     data: data,

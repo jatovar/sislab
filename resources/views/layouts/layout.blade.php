@@ -20,7 +20,7 @@
 
 
   </head>
-  <body id="body" onload="cargar()" onclick="ocultar()" style=""  link = "white">
+  <body id="body" onclick="ocultar()" style=""  link = "white">
     <!--<div class="row" style="background-color:#F3F3F3;" >
     <div class="col col-md-10 col-md-offset-1"  >-->
   <div  class="Principal">

@@ -43,15 +43,19 @@ class PrestamoEquipoController extends Controller
   {
     $res = ['success' => false];
     try {
-
       $date = Carbon::now();
-      $date->timezone("America/Mexico_City");
+
       $prestamo = new LabPrestamoItem();
-      $invitem = InvItem::where('id_area',$r->input('id_area'))->where('codigo_lab',$r->input('codigo_lab'))->first();
-      $prestamo->id_item = $invitem->id_item;
       $prestamo->cve_solicitante = $r->input('cve_solicitante');
       $prestamo->tipo_solicitante = $r->input('tipo_solicitante');
       $prestamo->fecha_prestamo = $date;
+      $date->timezone("America/Mexico_City");
+      $invitem = InvItem::where('id_area',$r->input('id_area'))->where('codigo_lab',$r->input('codigo_lab'))->first();
+
+      if($invitem)
+      {
+        $prestamo->id_item = $invitem->id_item;
+      }
       $prestamo->save();
       $res['success']= true;
       $res ['id_prestamo'] = $prestamo->id_prestamo;
