@@ -39,8 +39,8 @@ Route::get('controlAlumno/registrar_acceso','AccesoAlumnoController@registrarEnt
 Route::get('controlAlumno/registrado','AccesoAlumnoController@alumnoRegistrado');
 Route::get('controlAlumno/salida','AccesoAlumnoController@salidaAlumno');
 
-Route::get('controlAlumnos/prestamo_equipos/','PrestamoEquipoController@listaPrestamos');
-Route::get('/controlAlumnos/prestamo_equiposPaginacion/','PrestamoEquipoController@listaPrestamosPaginacion');
+Route::get('prestamo_equipos/','PrestamoEquipoController@listaPrestamos');
+Route::get('prestamo_equiposPaginacion/','PrestamoEquipoController@listaPrestamosPaginacion');
 
 Route::get('prestamo_equipo/alta','PrestamoEquipoController@registrarPrestamo');
 

@@ -8,7 +8,7 @@
       Control de Alumnos<span class="caret"></span></a>
       <ul  id="submenu1" class="dropdown-menu">
         <li><a href="/sislab/public/controlAlumnos/acceso_alumnos?id_lab=1">Acceso de Alumnos</a></li>
-        <li><a href="/sislab/public/controlAlumnos/prestamo_equipos?id_lab=1">Prestamo de equipo</a></li>
+        <li><a href="/sislab/public/prestamo_equipos?id_lab=1">Prestamo de equipo</a></li>
         <li><a href="#">Revisión de prácticas</a></li>
         <li><a href="#">Multas</a></li>
 

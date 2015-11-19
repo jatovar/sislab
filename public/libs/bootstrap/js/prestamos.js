@@ -53,31 +53,24 @@ function altaPrestamo()
   $.ajax({
     url: BASE_UR + "prestamo_equipo/alta",
     data: data,
-    dataType:'json',
+    dataType:'html',
     type:'get',
     success: function(data) {
-      if(data.success)
-      {
-        $('#myModal').modal('hide');
-        $('#myModal').html(data);
-        borrarDatos();
 
-      }
-      else {
-        //$('#nombre_alumno').val("");
-        alert(data.msj);
-      }
+        $('#myModal').modal('hide');
+        $('#TablaPrestamos').html(data);
+        borrarDatos();
     }
   });
 }
 function borrarDatos()
 {
-  $("cve_solicitante").val("");
-  $("nombre_solicitante").val("");
-  $("codigo_lab").val("");
-  $("nombre_equipo").val("");
-  $("descripcion").val("");
 
+  $("#cve_solicitante").val("");
+  $("#nombre_solicitante").val("");
+  $("#codigo_lab").val("");
+  $("#nombre_equipo").val("");
+  $("#descripcion").val("");
 }
 
 $(document).on('click','.pagination a', function(e)
@@ -90,7 +83,7 @@ $(document).on('click','.pagination a', function(e)
   }
 
   $.ajax({
-    url: BASE_UR + "controlAlumnos/prestamo_equiposPaginacion",
+    url: BASE_UR + "prestamo_equiposPaginacion",
     data: data,
     dataType:'html',
     type:'get',

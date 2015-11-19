@@ -26,7 +26,7 @@ class PrestamoEquipoController extends Controller
     $items = InvItem::whereIn('id_area',$labAreas)->lists('id_item');
     $prestamos = LabPrestamoItem::whereIn('id_item',$items)->paginate(6);
 
-    return view('laboratorio.controlAlumnos.prestamo_equipos',  array('laboratorio'=>$laboratorio,'prestamos' => $prestamos));
+    return view('laboratorio.prestamo_equipos',  array('laboratorio'=>$laboratorio,'prestamos' => $prestamos));
   }
   function listaPrestamosPaginacion(Request $r)
   {
@@ -36,7 +36,7 @@ class PrestamoEquipoController extends Controller
     $items = InvItem::whereIn('id_area',$labAreas)->lists('id_item');
     $prestamos = LabPrestamoItem::whereIn('id_item',$items)->paginate(6);
 
-    return view('laboratorio.controlAlumnos.tablaPrestamos',  array('prestamos' => $prestamos))->render();
+    return view('laboratorio.tablaPrestamos',  array('prestamos' => $prestamos))->render();
   }
 
   function registrarPrestamo(Request $r)
@@ -62,7 +62,14 @@ class PrestamoEquipoController extends Controller
     } catch (Exception $e) {
       $res['msj'] = $e->getMessage();
     }
-    return response()->json($res);
+
+      $id_lab = $r->input('id_lab');
+      $laboratorio = Laboratorio::find($id_lab);
+      $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
+      $items = InvItem::whereIn('id_area',$labAreas)->lists('id_item');
+      $prestamos = LabPrestamoItem::whereIn('id_item',$items)->paginate(6);
+
+      return view('laboratorio.tablaPrestamos',  array('prestamos' => $prestamos))->render();
 
   }
 }
