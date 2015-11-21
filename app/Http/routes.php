@@ -50,3 +50,5 @@ Route::get('invitem/nombre','InventarioController@dameNombreEquipo');
 Route::get('horario/materia','HorarioController@dameMateria');
 
 Route::get('profesor/nombre','ProfesorController@dameNombre');
+
+Route::resource('profesor','BecarioController');
