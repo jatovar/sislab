@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @extends('layouts.menu')
 @section('contenido')
+{!! Html::style('libs/bootstrap/css/prestamos.css') !!}
 {!! Html::script('libs/bootstrap/js/prestamos.js') !!}
 
 <div class="SubTitulo">Prestamo de Equipos</div>

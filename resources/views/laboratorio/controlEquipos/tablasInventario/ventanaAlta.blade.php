@@ -64,7 +64,8 @@
         <td colspan="1">{!!Form::textarea('documento',null,array('class'=>'form-control','size' => '35x2'))!!}</td>
         <td colspan="1">{!!Form::textarea('instructivo',null,array('class'=>'form-control','size' => '35x2'))!!}</td>
         <td rowspan="6" colspan="2">{!! Html::image('img/0.png','alt', array('width' => 300 )) !!}
-          </br></br><button id="nombre" name="nombre"  type="button" class="form-control">Seleccionar Imagen</button>
+        <div class="text-center"><button id="nombre" name="nombre" type="button" class="btn btn-default btn-sm text-center">Seleccionar Imagen</button>
+        </diV>
           </td>
       </tr>
     <tr>
@@ -84,9 +85,16 @@
 
     </tr>
     <tr>
-      <td colspan="1">{!!Form::select('fininciamiento',array('uaslp'=>'UASLP','donado'=>'Donado'),['class'=>'form-control'])!!}</td>
+      <td colspan="1">
+        <select id="clasificacion" name="clasificacion" class='form-control'>
+          <option value="UASLP">UASLP</option>
+          <option value="Donado">Donado</option>
+          <option value="Privado">Privado</option>
 
-      <td colspan="1">{!!Form::text('nota_especial')!!}</td>
+      </select>
+    </td>
+
+      <td colspan="1" >{!!Form::text('nota_especial',null,array('class'=>'form-control'))!!}</td>
     </tr>
 
     </form>
