@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Becario;
 use App\Models\Alumno;
+use Illuminate\Contracts\Routing\ResponseFactory;
 
 class BecarioController extends Controller
 {
@@ -38,14 +39,29 @@ class BecarioController extends Controller
      */
     public function store(Request $request)
     {
-      //  $alumno = Alumno::find($request['txtclve']);
+      echo "hola";
+    /*  $becario = Becario::create($request->all());
+      $becario->activo = 1;
+      $becario->password = bcrypt($becario->password);
+      $becario->save();*/
+      $res = ["success"=>false];
+      try {
         Becario::create([
           'cve_uaslp' => $request['txtclve'],
           'rpe' => $request['txtrpe'],
           'password' =>  bcrypt($request['txtpassword']),
           'activo' => '1',
         ]);
-        return "usuario registrado";
+        $res ["success"] = true;
+        $res ["msg"] = "Becario Registrado";
+        $res ["tipo"] = "success";
+      } catch (Exception $e) {
+        $res ["tipo"] = "danger";
+        $res ["msg"] = $e->getMessage();
+      }
+
+
+        return response()->json($res);
     }
 
     /**

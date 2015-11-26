@@ -1,0 +1,17 @@
+#alert-success{
+  visibility: hidden;
+  position: absolute;
+}
+#alert-info{
+  visibility: hidden;
+  position: absolute;
+}
+
+#alert-warning{
+  visibility: hidden;
+  position: absolute;
+}
+#alert-danger{
+  visibility: hidden;
+  position: absolute;
+}

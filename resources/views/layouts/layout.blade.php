@@ -18,7 +18,8 @@
     {!! Html::style('libs/bootstrap/css/modal.css') !!}
     {!! Html::script('libs/bootstrap/js/modal.js') !!}
 
-
+    {!! Html::style('libs/css/alertas.css') !!}
+    {!! Html::script('libs/js/alertas.js') !!}
   </head>
   <body id="body" onclick="ocultar()" style=""  link = "white">
     <!--<div class="row" style="background-color:#F3F3F3;" >

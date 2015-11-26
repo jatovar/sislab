@@ -4,13 +4,21 @@
 <head>
 
     <meta charset="utf-8">
+    <meta name="_token" content="{!! csrf_token() !!}"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
+    {!! Html::script('libs/bootstrap/js/jquery-2.1.4.js') !!}
     {!!Html::style('libs/bootstrap/css/bootstrap.min.css')!!}
     {!!Html::style('libs/bootstrap/css/metisMenu.min.css')!!}
     {!!Html::style('libs/bootstrap/css/sb-admin-2.css')!!}
     {!!Html::style('libs/bootstrap/css/font-awesome.min.css')!!}
+
+    {!! Html::style('libs/css/alertas.css') !!}
+    {!! Html::script('libs/js/alertas.js') !!}
+
+    {!! Html::script('libs/js/admin.js') !!}
+
 </head>
 
 <body>
@@ -54,8 +62,39 @@
                                 <li>
                                     <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
+
                                 <li>
-                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Becarios </a>
+                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
+                                </li>
+                            </ul>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Areas <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Areas </a>
+                                </li>
+                            </ul>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Categorias <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Categorias </a>
+                                </li>
+                            </ul>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Tipo multas <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Multas </a>
+                                </li>
+                                <li>
+                                    <a href="create"><i class='fa fa-minus fa-fw'></i> Baja Multa</a>
                                 </li>
                             </ul>
                         </li>
@@ -76,10 +115,11 @@
     </div>
 
 
-    {!!Html::script('libs/bootstrap/js/jquery.min.js')!!}
+
     {!!Html::script('libs/bootstrap/js/bootstrap.min.js')!!}
     {!!Html::script('libs/bootstrap/js/metisMenu.min.js')!!}
     {!!Html::script('libs/bootstrap/js/sb-admin-2.js')!!}
+    {!! Html::script('libs/bootstrap/js/principal.js') !!}
 
 </body>
 
