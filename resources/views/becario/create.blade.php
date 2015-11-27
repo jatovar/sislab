@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 	@section('content')
-	{!!Form::open(['id'=>'formbecario','route'=>'profesor.store','method'=>'POST'])!!}
+	{!!Form::open(['id'=>'formbecario','route'=>'becario.store','method'=>'POST'])!!}
 	<div class="text-center" style="">
 
 		@include('alertas.alertas')
@@ -24,10 +24,10 @@
 				{!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingrese la contraseña'])!!}
 
 			</div>
-			<button type="button" onclick="mostrarAlerta('success')" name="button"></button>
-			{!!Form::button('Registrar',['class'=>'btn btn-primary','onclick'=>'registrarBecario()'])!!}
+	</div>
+			{!!Form::button('Registrar',['class'=>'btn btn-primary' ,'onclick'=>'registrarBecario()'])!!}
 			{!!Form::close()!!}
 
-		</div>
+
 	</div>
 	@endsection

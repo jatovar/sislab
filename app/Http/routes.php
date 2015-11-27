@@ -51,4 +51,5 @@ Route::get('horario/materia','HorarioController@dameMateria');
 
 Route::get('profesor/nombre','ProfesorController@dameNombre');
 
-Route::resource('profesor','BecarioController');
+Route::resource('becario','BecarioController');
+Route::get('/profesor','ProfesorController@admin');
