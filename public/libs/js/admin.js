@@ -1,6 +1,6 @@
 function registrarBecario(){
   var url = BASE_UR + "becario";
-  var data = JSON.stringify($("#formbecario").serialize());
+  var data = $("#formbecario").serialize();
 
   $.ajax({
     data: data,
