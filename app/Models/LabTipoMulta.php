@@ -7,10 +7,14 @@ class LabTipoMulta extends Model{
 
 	protected $table ='lab_tipos_multa';
 	protected $primaryKey = 'id_multa';
-  protected $filltable=['id_multa','multa','costo','sancion'];
+  protected $filltable=['id_multa','id_laboratorio','multa','costo','sancion'];
 	function multas()
 	{
 		return $this->hasMany('App\Models\LabMultaLaboratorio','id_multa','clave_id')->get();
+	}
+	function laboratorio()
+	{
+		return $this->hasOne('App\Models\Laboratorio','id_laboratorio','id_laboratorio')->first();
 	}
 
 }

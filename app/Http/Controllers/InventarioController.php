@@ -3,6 +3,8 @@ use App\Models\InvItem;
 use App\Models\InvDetalleItem;
 
 use App\Models\LabArea;
+use App\Models\LabCategoriaInv;
+
 use App\Models\Laboratorio;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -29,12 +31,29 @@ class InventarioController extends Controller
       return response()->json($res);
     }
 
+    function listaEquiposCategoria($id_lab,$id_cat)
+    {
+      /*$laboratorio = Laboratorio::find($id_lab);
+      $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
+      $items = InvItem::whereIn('id_area',$labAreas)->get();
+  return view('laboratorio.controlEquipos.inventario', array('laboratorio' => $laboratorio,'items' =>  $items ));
+*/
+    $laboratorio = Laboratorio::find($id_lab);
+
+    $labCategoria1 = LabCategoriaInv::where('id_laboratorio',$id_lab)->where('id_categoria_inv',$id_cat)->first();
+
+    return view('laboratorio.controlEquipos.inventario', array('laboratorio' => $laboratorio,'categoria' =>  $labCategoria1 ));
+
+    }
     function listaEquipos($id_lab)
     {
       $laboratorio = Laboratorio::find($id_lab);
+      $labCategoria1 = LabCategoriaInv::where('id_laboratorio',$id_lab)->orderBy('id_lab_categoria_inv')->first();
+    /*  $clasificaciones = $labCategoria1->clasificaciones()->lists('id_clasificacion');
+      $detallesItems = InvDetalleItem::whereIn('id_clasificacion',$clasificaciones)->lists('id_detalle_item');
       $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-      $items = InvItem::whereIn('id_area',$labAreas)->get();
-      return view('laboratorio.controlEquipos.inventario', array('laboratorio' => $laboratorio,'items' =>  $items ));
+      $items = InvItem::whereIn('id_area',$labAreas)->whereIn('id_detalle_item',$detallesItems)->get();*/
+      return view('laboratorio.controlEquipos.inventario', array('laboratorio' => $laboratorio,'categoria' =>  $labCategoria1 ));
     }
     function listaEquiposArea($id_area)
     {

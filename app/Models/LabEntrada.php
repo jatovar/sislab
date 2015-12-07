@@ -8,7 +8,7 @@ class LabEntrada extends Model{
 	protected $table ='lab_entradas';
 	public $timestamps = false;
 	protected $primaryKey = 'id_entrada';
-  protected $filltable=['id_entrada','cve_alumno','id_area','id_prestamo_item','cve_materia','fecha_entrada','hora_entrada','fecha_salida','notas'];
+  protected $filltable=['id_entrada','cve_alumno','id_area','id_prestamo_item','cve_materia','fecha_entrada','hora_entrada','hora_entrada','notas','duracion'];
 
 
 	function alumno()

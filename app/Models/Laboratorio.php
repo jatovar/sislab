@@ -31,6 +31,14 @@ class Laboratorio extends Model
   {
     return $this->hasMany('App\Models\LaboratorioBec','id_laboratorio','id_laboratorio')->get();
   }
+  function categoriaslab()
+  {
+    return $this->hasMany('App\Models\LabCategoriaInv','id_laboratorio','id_laboratorio')->get();
+  }
+  function tiposMultas()
+  {
+    return $this->hasMany('App\Models\LabTipoMulta','id_laboratorio','id_laboratorio')->get();
+  }
 
 }
 ?>
