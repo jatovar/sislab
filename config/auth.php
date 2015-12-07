@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => App\User::class,
+    'model' => App\Models\Becario::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'table' => 'users',
+    'table' => 'becarios',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,10 +58,5 @@ return [
     |
     */
 
-    'password' => [
-        'email' => 'emails.password',
-        'table' => 'password_resets',
-        'expire' => 60,
-    ],
 
 ];

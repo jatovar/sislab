@@ -30,7 +30,7 @@ class ProfesorController extends Controller
   }
   function admin()
   {
-    
+
     return view ('admin.index');
   }
 }
