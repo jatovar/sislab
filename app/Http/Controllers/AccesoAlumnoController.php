@@ -16,7 +16,8 @@ use Illuminate\Database\Eloquent;
  */
 class AccesoAlumnoController extends Controller
 {
-  public function __construct(){
+  public function __construct()
+  {
     $this->middleware('auth');
   }
 
@@ -34,6 +35,7 @@ class AccesoAlumnoController extends Controller
     return view('laboratorio.controlAlumnos.tablaAcceso',  array('entradas' => $entradas))->render();
 
   }
+
   function listaAcceso(Request $r)
   {
 
@@ -61,6 +63,7 @@ class AccesoAlumnoController extends Controller
     return view('laboratorio.controlAlumnos.acceso_alumnos',
             array('laboratorio' => $laboratorio,'entradas' => $entradas, 'materias' => $materias));
   }
+
   function registrarEntrada(Request $r)
   {
       $date = Carbon::now();

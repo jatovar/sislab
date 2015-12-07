@@ -39,7 +39,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="remember"> Remember Me
+										<input type="checkbox" name="remember">  Recordar Usuario
 									</label>
 								</div>
 							</div>
@@ -49,7 +49,7 @@
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>
 
-								<a class="btn btn-link" href="{{ url('/password/cve_uaslp') }}">Forgot Your Password?</a>
+								<a class="btn btn-link" href="{{ url('/password/cve_uaslp') }}">¿Contraseña olvidada?</a>
 							</div>
 						</div>
 					</form>
