@@ -48,11 +48,11 @@
       </div>
 
 
-    <div >
+    <div id="menu" class="Menu">
       @section('menu')
       @show
     </div>
-    <div id="contenido_pagina"   class="contenedor-info">
+    <div class="container-fluid"   id="contenido">
       @section('contenido')
       @show
     </div>
