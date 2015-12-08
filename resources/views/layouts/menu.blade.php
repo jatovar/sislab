@@ -1,6 +1,6 @@
 @section('menu')
 {!! Html::style('libs/bootstrap/css/menu.css') !!}
-<div>
+<div class = "cont-menu">
 <ul class="nav navbar-nav  navbar-inverse" style="width:100%">
     <li class="active"><a href="/sislab/public">Home</span></a></li>
     <li  onclick="verSubmenu1()"  class="dropdown">
@@ -34,7 +34,7 @@
     </li>
 
   </ul>
-<div>
+</div>
 </br>
 </br>
 
