@@ -27,7 +27,7 @@
   <body  onclick="ocultar()" style=""  link = "white">
     <!--<div class="row" style="background-color:#F3F3F3;" >
     <div class="col col-md-10 col-md-offset-1"  >-->
-<<<<<<< HEAD
+
   <div  class="Principal">
     <header id="Encabezado">
       <div class="Logo">
@@ -39,7 +39,7 @@
       <div>
         <?php
         ?>
-=======
+
   <div id="main-container" class="container">
 
       <div id="encabezado" class="container-fluid">
@@ -58,7 +58,6 @@
                   </div>
               </div>
           </div>
->>>>>>> 069e33c4272b73eb2f154194ee777c1c915e3aca
       </div>
 
 
