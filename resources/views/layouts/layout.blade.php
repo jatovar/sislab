@@ -52,7 +52,7 @@
       @section('menu')
       @show
     </div>
-    <div class="container-fluid"   id="contenido">
+    <div class="contenedor-info"   id="contenido">
       @section('contenido')
       @show
     </div>
