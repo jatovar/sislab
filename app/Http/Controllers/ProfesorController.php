@@ -28,4 +28,9 @@ class ProfesorController extends Controller
     }
     return response()->json($res);
   }
+  function admin()
+  {
+
+    return view ('admin.index');
+  }
 }

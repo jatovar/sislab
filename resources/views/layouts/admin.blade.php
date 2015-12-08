@@ -60,11 +60,11 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Becarios <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/becario/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
 
                                 <li>
-                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
+                                    <a href="{!!URL::to('/becario')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Areas <span class="fa arrow"></span></a>

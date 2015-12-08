@@ -39,29 +39,32 @@ class BecarioController extends Controller
      */
     public function store(Request $request)
     {
-      echo "hola";
+      //echo "hola";
     /*  $becario = Becario::create($request->all());
       $becario->activo = 1;
       $becario->password = bcrypt($becario->password);
       $becario->save();*/
-      $res = ["success"=>false];
-      try {
-        Becario::create([
-          'cve_uaslp' => $request['txtclve'],
-          'rpe' => $request['txtrpe'],
-          'password' =>  bcrypt($request['txtpassword']),
-          'activo' => '1',
-        ]);
-        $res ["success"] = true;
-        $res ["msg"] = "Becario Registrado";
-        $res ["tipo"] = "success";
-      } catch (Exception $e) {
-        $res ["tipo"] = "danger";
-        $res ["msg"] = $e->getMessage();
-      }
 
 
-        return response()->json($res);
+            $res = ["success"=>false];
+            try {
+              Becario::create([
+                'cve_uaslp' => $request['cve_uaslp'],
+                'rpe' => $request['rpe'],
+                'password' =>  bcrypt($request['password']),
+                'activo' => '1',
+              ]);
+              $res ["success"] = true;
+              $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
+              $res ["tipo"] = "success";
+            } catch (Exception $e) {
+              $res ["tipo"] = "danger";
+              $res ["msg"] = $e->getMessage();
+            }
+
+
+            return response()->json($res);
+
     }
 
     /**

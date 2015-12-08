@@ -16,6 +16,9 @@ use Illuminate\Database\Eloquent;
  */
 class AccesoAlumnoController extends Controller
 {
+  public function __construct(){
+    $this->middleware('auth');
+  }
 
   function listaAcceso1(Request $r)
   {

@@ -1,6 +1,6 @@
 function registrarBecario(){
-  var url = BASE_UR + "profesor";
-  var data = JSON.stringify($("#formbecario").serialize());
+  var url = BASE_UR + "becario";
+  var data = $("#formbecario").serialize();
 
   $.ajax({
     data: data,
@@ -8,13 +8,13 @@ function registrarBecario(){
     type: 'POST',
     datatype: 'json',
     success: function (result){
-        alert(result);
+      //  alert(result);
       mostrarAlerta(result.msg,result.tipo);
 
     },
     error : function(xhr,ajaxOptions,thrownError){
-      alert(xhr.status + ' ' + thrownError + '\n' );
+      //alert(xhr.status + ' ' + thrownError + '\n' );
     },
-    traditional: true
+    traditional: true,
   });
 }

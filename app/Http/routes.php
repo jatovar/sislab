@@ -11,9 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('laboratorio.index');
-});
+Route::get('/', 'HomeController@index');
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+
+Route::controllers([
+   'password' => 'Auth\PasswordController',
+]);
+
+
 Route::get('controlEquipos/inventario/{id_lab}','InventarioController@listaEquipos');
 Route::get('controlEquipos/inventario/{id_lab}/{id_cat}','InventarioController@listaEquiposCategoria');
 
@@ -55,4 +69,5 @@ Route::get('horario/materia','HorarioController@dameMateria');
 
 Route::get('profesor/nombre','ProfesorController@dameNombre');
 
-Route::resource('profesor','BecarioController');
+Route::resource('becario','BecarioController');
+Route::get('/profesor','ProfesorController@admin');
