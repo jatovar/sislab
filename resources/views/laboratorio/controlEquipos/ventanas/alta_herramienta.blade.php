@@ -64,7 +64,9 @@
         <td colspan="1">{!!Form::textarea('documento',null,array('class'=>'form-control','size' => '35x2'))!!}</td>
         <td colspan="1">{!!Form::textarea('instructivo',null,array('class'=>'form-control','size' => '35x2'))!!}</td>
         <td rowspan="6" colspan="2">{!! Html::image('img/0.png','alt', array('width' => 300 )) !!}
-        <div class="text-center"><button id="nombre" name="nombre" type="button" class="btn btn-default btn-sm text-center">Seleccionar Imagen</button>
+        <div class="text-center">            {!! Form::label('file', 'File') !!}
+                            <span class="btn btn-default btn-file">
+                               {!! Form::file('file') !!}</span>
         </diV>
           </td>
       </tr>

@@ -1,5 +1,4 @@
-{!! Html::style('libs/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112')!!}
-{!! Html::script('libs/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118') !!}
+
 {!! Html::script('libs/js/consultasAcceso.js') !!}
 
 <script>

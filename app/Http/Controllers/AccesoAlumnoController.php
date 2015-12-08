@@ -17,11 +17,13 @@ use Illuminate\Database\Eloquent;
 class AccesoAlumnoController extends Controller
 {
   public function __construct(){
-    $this->middleware('auth');
+
+    //  $this->middleware('auth');
   }
 
   function listaAcceso1(Request $r)
   {
+
 
     $id_lab = $r->input('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
@@ -36,6 +38,7 @@ class AccesoAlumnoController extends Controller
   }
   function listaAcceso(Request $r)
   {
+
 
     $id_lab = $r->input('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
@@ -71,6 +74,7 @@ class AccesoAlumnoController extends Controller
       $entrada->cve_materia = $r->input('cve_materia');
       $entrada->fecha_entrada = $date;
       $entrada->hora_entrada = $date;
+      $entrada->hora_salida = '00:00:00';
       $entrada->notas = $r->input('nota');
 
       if($r->input('codigo_lab')!="")
@@ -92,7 +96,7 @@ class AccesoAlumnoController extends Controller
       $id_lab = $r->input('id_lab');
       $laboratorio = Laboratorio::find($id_lab);
       $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida','00:00:00')->paginate(8);
+      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('hora_salida','00:00:00')->paginate(8);
 
       return view('laboratorio.controlAlumnos.tablaAcceso',  array('entradas' => $entradas))->render();
   }
@@ -103,7 +107,7 @@ class AccesoAlumnoController extends Controller
     try {
 
       $cve_alumno = $r->input('cve_alumno');
-      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->where('fecha_salida','00:00:00')->count();
+      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->where('hora_salida','00:00:00')->count();
 
       $res['success'] = true;
       $res['registrado'] = false;

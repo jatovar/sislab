@@ -32,13 +32,9 @@
       <div class="Titulo">
         Control Laboratorios
       </div>
-      <div class="Login" >
-        <form style="width:180px" action="index.html" method="post">
-        <label>Usuario</label><input class="form-control " type="text" /></br>
-        <label style="margin-top:-14px">Password</label><input style="margin-top:-14px" class="form-control" type="text" />
-      </br><input style="color:blue; margin-top:-25px; padding-top:0px;" class="btn btn-default"  value="Iniciar"  type="button" />
-
-        </form>
+      <div>
+        <?php
+        ?>
       </div>
     </header>
     <div id="menu" class="Menu">

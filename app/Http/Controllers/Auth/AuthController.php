@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use App\Models\LaboratorioBec;
+use App\Models\Laboratorio;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -77,10 +80,16 @@ class AuthController extends Controller
       ]);
 
       $credentials = $request->only('cve_uaslp', 'password');
+      //$id_lab = LaboratorioBec::where('clave_uaslp','189780')->first();
 
+      //$lab = Laboratorio::find(1);
       //return $credentials;
       if (Auth::attempt($credentials, $request->has('remember'))) {
-           return redirect()->intended($this->redirectPath());
+        //$_SESSION['laboratorio'] = $lab;
+
+          return redirect()->intended($this->redirectPath());
+        //return view('laboratorio.index',array('laboratorio' => $lab));
+
       }
 
       return redirect($this->loginPath())

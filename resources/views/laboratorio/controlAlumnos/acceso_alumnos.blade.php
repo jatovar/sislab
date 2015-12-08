@@ -31,7 +31,6 @@
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
-
     <div class="modal-content">
       <!-- dialog body -->
 
@@ -41,7 +40,7 @@
         </div>
 
       <div class="modal-body">
-        <form id="form" role="form">
+      <form id="form1" role="form">
           <div class="form-group" style="padding: 0px 0px;">
 
       <span class="glyphicons glyphicons-user"></span>

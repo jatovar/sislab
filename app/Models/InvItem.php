@@ -61,6 +61,11 @@ class InvItem extends Model
 	{
 		return $this->hasMany('App\Models\LabEspacio','id_item','id_item')->get();
 	}
+	function item()
+	{
+		return $this->hasMany('App\Models\InvItem','id_item_principal','id_item')->get();
+
+	}
 
 }
 

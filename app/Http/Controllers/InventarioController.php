@@ -70,7 +70,8 @@ class InventarioController extends Controller
         $cadena = "";
 
         foreach ($items as $item => $i) {
-          $cadena =  $cadena."<option>".$i->codigo_lab."</option> ";
+          if($i->id_item_principal==null)
+            $cadena =  $cadena."<option>".$i->codigo_lab."</option> ";
         }
         return $cadena;
       }

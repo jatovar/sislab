@@ -127,7 +127,8 @@ function altaRegistro()
   if(($("#clave_alumno").val()) !="")
   {
     codigo = $("#codigo_lab").val();
-    var data = $("#form").serialize() + "&id_area="+id_area + "&codigo_lab="+codigo + "&id_lab="+ID_LABORATORIO+"&page="+pagina;
+    var data = $("#form1").serialize() + "&id_area="+id_area + "&codigo_lab="+codigo + "&id_lab="+ID_LABORATORIO+"&page="+pagina;
+
     $.ajax({
       url: BASE_UR + "controlAlumno/registrar_acceso",
       data: data,
@@ -150,7 +151,7 @@ function altaPrestamo()
   codigo = $("#codigo_lab").val();
   var data =
   {
-    "clave_solicitante": clave,
+    "cve_solicitante": clave,
     "id_prestamo_item" : id_prestamo,
     "codigo_lab" : codigo,
     "tipo_solicitante": 1,
