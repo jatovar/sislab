@@ -24,7 +24,7 @@ class AccesoAlumnoController extends Controller
     $laboratorio = Laboratorio::find($id_lab);
     $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida',NULL)->paginate(8);
+    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('hora_salida','00:00:00')->paginate(8);
     $claves_mat = Horario::whereIn('salon',$salones)->lists('clave_materia');
     $materias = Materia::whereIn('clave_materia',$claves_mat)->get();
 
@@ -38,7 +38,7 @@ class AccesoAlumnoController extends Controller
     $laboratorio = Laboratorio::find($id_lab);
     $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida',NULL)->paginate(8);
+    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('hora_salida','00:00:00')->paginate(8);
     $claves_mat = Horario::whereIn('salon',$salones)->lists('clave_materia');
     $materias = Materia::whereIn('clave_materia',$claves_mat)->get();
   /**  $res = ['succes'=> false];
@@ -89,7 +89,7 @@ class AccesoAlumnoController extends Controller
       $id_lab = $r->input('id_lab');
       $laboratorio = Laboratorio::find($id_lab);
       $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida',NULL)->paginate(8);
+      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida','00:00:00')->paginate(8);
 
       return view('laboratorio.controlAlumnos.tablaAcceso',  array('entradas' => $entradas))->render();
   }
@@ -100,7 +100,7 @@ class AccesoAlumnoController extends Controller
     try {
 
       $cve_alumno = $r->input('cve_alumno');
-      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->where('fecha_salida',NULL)->count();
+      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->where('fecha_salida','00:00:00')->count();
 
       $res['success'] = true;
       $res['registrado'] = false;
@@ -123,7 +123,7 @@ class AccesoAlumnoController extends Controller
       $date->timezone("America/Mexico_City");
       $id_entrada = $r->input('id_entrada');
       $entrada = LabEntrada::find($id_entrada);
-      $entrada->fecha_salida = $date;
+      $entrada->hora_salida = $date;
       $entrada->save();
       $res['success'] = true;
 
@@ -131,5 +131,17 @@ class AccesoAlumnoController extends Controller
       $res['msj'] = $e->getMessage();
     }
     return response()->json($res);
+  }
+  function consultaAlumno(Request $r)
+  {
+    $clave = $r->input('cve_alumno');
+    $id_lab = $r->input('id_lab');
+    $laboratorio = Laboratorio::find($id_lab);
+    $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
+    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('cve_alumno',$clave)->paginate(10);
+
+    return view('laboratorio.controlAlumnos.tablaConsulta',
+                array('laboratorio' => $laboratorio,'entradas' => $entradas));
+
   }
 }

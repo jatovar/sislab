@@ -5,8 +5,12 @@
 {!! Html::script('libs/bootstrap/js/acceso_alumnos.js') !!}
 
 <div class="SubTitulo">Acceso a Alumnos</div>
+<div >
+    <button type="button" class="btn btn-default btn-sm btn-success" id="boton">Nuevo</button>
+    <button type="button" class="btn btn-default btn-sm btn-success" id="btnConsulta">Consulta</button>
 
-<div style="height:100%" onload="cargar()" class="Alumnos" >
+</div>
+<div style="height:100%;margin-top:20px" onload="cargar()" class="Alumnos" >
 
     <div id="Tabla">
       @include('laboratorio.controlAlumnos.tablaAcceso')
@@ -18,11 +22,10 @@
       <div class="btn btn-success">Multa</div>
       <div class="btn btn-danger" onclick="bajaRegistro()">Baja</div>
     </div>
-    <div class="text-center">
-        <button type="button" class="btn btn-default btn-lg" id="boton">Acceso alumno</button>
-    </div>
+
 
 </div>
+@include('laboratorio.controlAlumnos.modalConsulta')
 
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -97,6 +100,7 @@
       </div>
       <!-- dialog buttons -->
       <div class="modal-footer"><button type="button" class="btn btn-primary" onclick="altaRegistro()" >OK</button></div>
+
     </div>
   </div>
 </div>

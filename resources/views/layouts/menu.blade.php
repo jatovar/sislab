@@ -18,7 +18,7 @@
     <li onclick="verSubmenu2()" class="dropdown" >
       <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Control de Equipos <span class="caret"></span></a>
       <ul id="submenu2" class="dropdown-menu">
-        <li><a href="/sislab/public/controlEquipos/inventario/2">Inventario</a></li>
+        <li><a href="/sislab/public/controlEquipos/inventario/1">Inventario</a></li>
         <li><a href="/sislab/public/controlEquipos/mantenimientos/2">Mantenimientos</a></li>
       </ul>
     </li>

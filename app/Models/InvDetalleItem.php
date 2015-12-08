@@ -14,7 +14,8 @@ class InvDetalleItem extends Model
                 'nombre',
                 'marca',
                 'modelo',
-                'id_categoria',
+                'id_categoria_inv',
+                'id_clasificacion',
                 'financiamiento',
                 'descripcion',
                 'uso',
@@ -24,11 +25,21 @@ class InvDetalleItem extends Model
                 'instructivo',
                 'materiales_consumibles',
                 'documento',
-                'imagen'
+                'imagen',
+                'cantidad',
+                'capacidad'
               ];
 
   function categoria()
   {
-    return $this->hasOne('App\Models\Categoria','id_categoria','id_categoria')->first();
+    return $this->hasOne('App\Models\LabCategoriaInv','id_lab_categoria_inv','id_categoria_inv')->first();
+  }
+  function clasificacion()
+  {
+    return $this->hasOne('App\Models\InvClasificacion','id_clasificacion','id_clasificacion')->first();
+  }
+  function items()
+  {
+    return $this->hasMany('App\Models\InvItem','id_detalle_item','id_detalle_item')->get();
   }
 }

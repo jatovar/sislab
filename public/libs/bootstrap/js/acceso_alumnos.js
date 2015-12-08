@@ -66,6 +66,9 @@ $('document').ready(function() {
       $("#"+id_area).css("background-color","#C3C3C3");
 
   });
+  $('#btnConsulta').click(function() {
+      $('#ModalConsulta').modal('show');
+  });
   $("#equipos").bind('select',function(){
     alert("sss");
   });
