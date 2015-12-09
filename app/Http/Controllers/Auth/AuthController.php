@@ -6,7 +6,7 @@ use App\User;
 use Validator;
 use App\Models\LaboratorioBec;
 use App\Models\Laboratorio;
-
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -80,14 +80,19 @@ class AuthController extends Controller
       ]);
 
       $credentials = $request->only('cve_uaslp', 'password');
-      //$id_lab = LaboratorioBec::where('clave_uaslp','189780')->first();
+      $clave =   $request->only('cve_uaslp');
+      $id_lab = LaboratorioBec::select('id_laboratorios')->where('clave_uaslp',$clave)->lists('id_laboratorios')->first();
 
-      //$lab = Laboratorio::find(1);
+
+      $lab = Laboratorio::find($id_lab);
+
       //return $credentials;
       if (Auth::attempt($credentials, $request->has('remember'))) {
         //$_SESSION['laboratorio'] = $lab;
+        Session::put('laboratorio', $lab->laboratorio);
+        Session::put('id_lab', $id_lab);
 
-          return redirect()->intended($this->redirectPath());
+        return redirect()->intended($this->redirectPath());
         //return view('laboratorio.index',array('laboratorio' => $lab));
 
       }

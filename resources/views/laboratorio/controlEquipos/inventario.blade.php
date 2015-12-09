@@ -7,6 +7,7 @@
 
 {!! Html::script('libs/bootstrap/js/inventario.js') !!}
 
+<div style="margin:10px" >
 
 <div class="SubTitulo">Inventario de Equipos</div>
 
@@ -110,6 +111,7 @@
   </tbody>
 
 </table>
+</div>
 </div>
 <div>
   @include('laboratorio.controlEquipos.ventanas.alta_computacional')

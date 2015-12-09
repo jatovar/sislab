@@ -3,9 +3,10 @@
 @section('contenido')
 {!! Html::style('libs/bootstrap/css/acceso_alumnos.css') !!}
 {!! Html::script('libs/bootstrap/js/acceso_alumnos.js') !!}
-
+<div style="margin:10px" >
+  {{Session::get('laboratorio')}}
 <div class="SubTitulo">Acceso a Alumnos</div>
-<div >
+<div  >
     <button type="button" class="btn btn-default btn-sm btn-success" id="boton">Nuevo</button>
     <button type="button" class="btn btn-default btn-sm btn-success" id="btnConsulta">Consulta</button>
 
@@ -24,6 +25,7 @@
     </div>
 
 
+</div>
 </div>
 @include('laboratorio.controlAlumnos.modalConsulta')
 

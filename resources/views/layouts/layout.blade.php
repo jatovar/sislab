@@ -28,17 +28,6 @@
     <!--<div class="row" style="background-color:#F3F3F3;" >
     <div class="col col-md-10 col-md-offset-1"  >-->
 
-  <div  class="Principal">
-    <header id="Encabezado">
-      <div class="Logo">
-      <img src="/sislab/public/img/uaslplogo.png" style="height:70px" alt="" />
-      </div>
-      <div class="Titulo">
-        Control Laboratorios
-      </div>
-      <div>
-        <?php
-        ?>
 
   <div id="main-container" class="container">
 
@@ -53,7 +42,7 @@
 
               <div class="col-lg-8 col-md-6 col-sm-4 col-xs-4 fondo-encabezado">
                   <div class="row">
-                      <div class="titulo_acei col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                      <div class="titulo_acei col-lg-9 col-md-12 col-sm-12 col-xs-12">  {{Session::get('laboratorio')}}
                       </div>
                   </div>
               </div>
@@ -65,7 +54,7 @@
       @section('menu')
       @show
     </div>
-    <div class="contenedor-info"   id="contenido">
+    <div class="container-fluid contenedor-info "   id="contenido">
       @section('contenido')
       @show
     </div>

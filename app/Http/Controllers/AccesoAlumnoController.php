@@ -5,6 +5,8 @@ use App\Models\LabEntrada;
 use App\Models\LabPrestamoItem;
 use App\Models\Horario;
 use App\Models\Materia;
+use Session;
+
 use Carbon\Carbon;
 use App\Models\Laboratorio;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -19,12 +21,12 @@ class AccesoAlumnoController extends Controller
 
   public function __construct()
   {
-    $this->middleware('auth');
+  //$this->middleware('auth');
   }
 
   function listaAcceso1(Request $r)
   {
-
+    $id_lab = Session::get('id_lab');
 
     $id_lab = $r->input('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
@@ -38,11 +40,9 @@ class AccesoAlumnoController extends Controller
 
   }
 
-  function listaAcceso(Request $r)
+  function listaAcceso()
   {
-
-
-    $id_lab = $r->input('id_lab');
+    $id_lab = Session::get('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
     $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
@@ -144,6 +144,16 @@ class AccesoAlumnoController extends Controller
   }
   function consultaAlumno(Request $r)
   {
+    if($r->input('op') == "frecuentes")
+    {
+
+
+    }
+    else
+    {
+
+
+    }
     $clave = $r->input('cve_alumno');
     $id_lab = $r->input('id_lab');
     $laboratorio = Laboratorio::find($id_lab);

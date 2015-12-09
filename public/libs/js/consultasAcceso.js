@@ -1,9 +1,12 @@
-function consultaAcceso()
+function consultaAcceso(t)
 {
 
   var data = {
+    fechaIni: $('#fechaIni').val(),
+    fechaFin: $('#fechaFin').val(),
+    op : t.id,
     id_lab: ID_LABORATORIO,
-    cve_alumno: $('#cve_alumno').val()
+    dato: t.value
   }
   $.ajax({
     url: BASE_UR + "controlAlumno/entradasAlumno",

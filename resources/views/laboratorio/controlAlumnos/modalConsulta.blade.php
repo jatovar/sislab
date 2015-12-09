@@ -1,3 +1,4 @@
+{!! Html::style('libs/css/consultaAcceso.css') !!}
 
 {!! Html::script('libs/js/consultasAcceso.js') !!}
 
@@ -30,10 +31,17 @@
             <span  class="label label-default">a:</span>
             <input type="date" id="fechaFin">
             <div class="Etiqueta"> Alumnos</div>
-            <span>Frecuentes<input name="consulta" id="fecha" type="radio" /><span>
-            <span>Alumno<input name="consulta" id="cve_alumno" type="text" /><span>
-            <span><input name="consulta" id="fecha" type="radio" /><span>
-              <button type="button" name="button" onclick="consultaAcceso()">OK</button>
+            <span>Frecuentes</span><select id="frecuentes" onclick="consultaAcceso()">
+              @foreach([1,2,3,4,5,6,7,8,9,10] as $num)
+                <option value="{{$num}}">{{$num}}</option>
+              @endforeach
+
+          </select>
+            <span>Por clave<input name="consulta" id="cve_alumno" type="text" onkeyup="consultaAcceso(this)" /><span>
+
+            </br>
+          </br>
+
               <div id="TablaConsulta">
                 @include('laboratorio.controlAlumnos.tablaConsulta')
               </div>
