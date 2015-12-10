@@ -29,10 +29,10 @@ Route::controllers([
 ]);
 
 
-Route::get('controlEquipos/inventario/{id_lab}','InventarioController@listaEquipos');
+Route::get('controlEquipos/inventario/','InventarioController@listaEquipos');
 Route::get('controlEquipos/inventario/{id_lab}/{id_cat}','InventarioController@listaEquiposCategoria');
 
-Route::get('controlEquipos/inventarioDetalle  /{id_item}','InventarioController@detalleEquipo');
+Route::get('controlEquipos/inventarioDetalle/{id_item}','InventarioController@detalleEquipo');
 Route::get('controlEquipos/inventario/nuevo/{id_lab}','InventarioController@nuevoEquipo');
 
 
@@ -45,7 +45,7 @@ Route::get('controlEquipos/items/','InventarioController@dameEquiposArea');
 
 
 
-Route::get('controlEquipos/mantenimientos/{id_lab}','MantenimientoController@listaMantenimientos');
+Route::get('controlEquipos/mantenimientos','MantenimientoController@listaMantenimientos');
 Route::get('controlEquipos/mantenimiento/alta','MantenimientoController@altaMantenimiento');
 
 
@@ -62,6 +62,8 @@ Route::get('prestamo_equipos/','PrestamoEquipoController@listaPrestamos');
 Route::get('prestamo_equiposPaginacion/','PrestamoEquipoController@listaPrestamosPaginacion');
 
 Route::get('prestamo_equipo/alta','PrestamoEquipoController@registrarPrestamo');
+Route::get('prestamos/consulta','PrestamoEquipoController@consultaPrestamo');
+
 
 Route::get('alumno/nombre','AlumnoController@dameNombre');
 Route::get('invitem/nombre','InventarioController@dameNombreEquipo');

@@ -1,6 +1,6 @@
 {!! Html::style('libs/css/consultaAcceso.css') !!}
 
-{!! Html::script('libs/js/consultasAcceso.js') !!}
+{!! Html::script('libs/js/consultasPrestamo.js') !!}
 
 <script>
 
@@ -8,7 +8,7 @@
 
 
 </script>
-<div id="ModalConsulta" class="modal fade" role="dialog">
+<div id="ModalConsultaPrestamo" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
 
@@ -21,29 +21,25 @@
         </div>
 
       <div class="modal-body">
-        <form id="form" role="form">
+        <form id="formConsulta" role="form">
           <div class="form-group" style="padding: 0px 0px;">
             <div class="Etiqueta">Fecha  </div>
 
             <span  class="label label-default" >De:</span>
 
-            <input type="date" name="fecha"  value="<?php echo date('Y-m-d'); ?>" id="fechaIni">
+            <input type="date" id="fechaIni" value="<?php echo date('Y-m-d'); ?>">
             <span  class="label label-default">a:</span>
             <input type="date" id="fechaFin" value="<?php echo date('Y-m-d'); ?>">
-            <div class="Etiqueta"> Alumnos</div>
-            <span>Frecuentes</span><select id="frecuentes" onclick="consultaAcceso(this)">
-              @foreach([1,2,3,4,5,6,7,8,9,10] as $num)
-                <option value="{{$num}}">{{$num}}</option>
-              @endforeach
+            <div class="Etiqueta">Consulta Por</div>
+            <span>Equipo<input name="consulta" id="equipo" type="text"  onkeyup="consultaPrestamo(this)" /><span>
 
-          </select>
-            <span>Por clave<input name="consulta" id="clave" type="text" onkeyup="consultaAcceso(this)" /><span>
+            <span>Clave <input name="consulta" id="clave" type="text" onkeyup="consultaPrestamo(this)" /><span>
 
             </br>
           </br>
 
               <div id="TablaConsulta">
-                @include('laboratorio.controlAlumnos.tablaConsulta')
+                @include('laboratorio.tablaConsulta')
               </div>
           </div>
         </form>

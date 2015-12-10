@@ -3,4 +3,23 @@ span
   margin-left: 10px;
   margin-right: 10px;
 
+
+}
+#ModalConsulta
+{
+  max-height: 650px;
+}
+#ModalConsulta .modal-body
+{
+  height: 450px;
+  overflow-y: scroll;
+}
+#ModalConsultaPrestamo
+{
+  max-height: 650px;
+}
+#ModalConsultaPrestamo .modal-body
+{
+  height: 450px;
+  overflow-y: scroll;
 }

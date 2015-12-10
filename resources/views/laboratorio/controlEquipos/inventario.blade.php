@@ -7,12 +7,14 @@
 
 {!! Html::script('libs/bootstrap/js/inventario.js') !!}
 
-<div style="margin:10px" >
+
 
 <div class="SubTitulo">Inventario de Equipos</div>
 
 
 <div id="Contenido">
+</br>
+
   <div class="Categorias">
   @foreach($laboratorio->categoriaslab() as $catLab)
   @if($catLab == $categoria)

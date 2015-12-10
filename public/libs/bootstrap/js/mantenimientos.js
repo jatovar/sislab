@@ -5,7 +5,7 @@ function seleccionaArea(t)
   if(t.id != id_area)
   {
     $("#"+t.id).css("background-color","#C3C3C3");
-    $("#"+id_area).css("background-color","white");
+    $("#"+id_area).css("background-color","#798D8F");
     id_area = t.id;
   }
 }

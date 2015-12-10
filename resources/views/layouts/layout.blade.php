@@ -42,8 +42,11 @@
 
               <div class="col-lg-8 col-md-6 col-sm-4 col-xs-4 fondo-encabezado">
                   <div class="row">
-                      <div class="titulo_acei col-lg-9 col-md-12 col-sm-12 col-xs-12">  {{Session::get('laboratorio')}}
+                      <div class="titulo_acei col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div style="float:right;margin-right:10px;margin-top:50px;font-weight:bold">Laboratorio:<span> {{Session::get('laboratorio')}}<span><div>
+
                       </div>
+
                   </div>
               </div>
           </div>
@@ -55,8 +58,11 @@
       @show
     </div>
     <div class="container-fluid contenedor-info "   id="contenido">
+      <div style="margin:15px" >
+
       @section('contenido')
       @show
+    </div>
     </div>
     <div id="pie_pagina">
 
