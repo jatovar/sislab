@@ -43,8 +43,13 @@
               <div class="col-lg-8 col-md-6 col-sm-4 col-xs-4 fondo-encabezado">
                   <div class="row">
                       <div class="titulo_acei col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                        <div style="float:right;margin-right:10px;margin-top:50px;font-weight:bold">Laboratorio:<span> {{Session::get('laboratorio')}}<span><div>
+                        <div style="float:right;margin-right:10px;margin-top:50px;font-weight:bold">
+                          @if(Session::get('laboratorio'))
 
+                          Laboratorio:<span>
+                          {{Session::get('laboratorio')}}<span>
+                          @endif
+                        </div>
                       </div>
 
                   </div>

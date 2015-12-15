@@ -6,18 +6,38 @@
   <tr>
     <th colspan="3"  rowspan="1">Control de Equipo</th>
   </tr>
-
   <tr>
-    <th >Código Lab</th>
-    <th>Número Inventario</th>
+    <th>Ubicación</th>
+    <th>Código Lab</th>
     <th>Fecha de Introdución</th>
   </tr>
     <tr>
-      <td colspan="1">{!!Form::text('codigo_lab',$i->codigo_lab)!!}</td>
-      <td> {!! Form::text('notes',$i->codigo_uaslp_1)!!}</td>
-      <td>{!! Form::text('fecha_registro',$i->fecha_registro)!!}</td>
-    </tr>
+      <td>
+        <select id="id_area" class="form-control">
+          <option value="{{$i->id_area}}">{{$i->labArea()->area}}</option>
+          @foreach($i->labArea()->laboratorio()->areas() as $area)
+            @if($area->area != $i->labArea()->area)
+              <option value="{{$area->id_area}}">{{$area->area}}</option>
+            @endif
+          @endforeach
+      </select>
+      </td>
+      <td colspan="1">{!!Form::text('codigo_lab',$i->codigo_lab, array('id'=>'codigo_lab'))!!}</td>
+      <td>{!! Form::date('fecha_registro',$i->fecha_registro, array('id'=>'fecha_registro'))!!}</td>
 
+    </tr>
+    <tr>
+      <th>Número Inventario 1</th>
+      <th>Número Inventario 2</th>
+      <th>Número Serie</th>
+
+    </tr>
+    <tr>
+    <td> {!! Form::text('codigo_uaslp_1',$i->codigo_uaslp_1,array('id'=>'codigo_uaslp_1'))!!}</td>
+    <td> {!! Form::text('codigo_uaslp_2',$i->codigo_uaslp_2,array('id'=>'codigo_uaslp_2'))!!}</td>
+    <td> {!! Form::text('num_serie',$i->num_serie,array('id'=>'num_serie'))!!}</td>
+    </tr>
+  <form id="formDatosItem">
     <tr>
     <th colspan="1">Nombre </th>
       <th colspan="1">Marca</th>
@@ -77,7 +97,7 @@
   <td colspan="1">{!!Form::text('nota_especial',$i->detalle()->nota_especial)!!}</td>
 </tr>
 
-
+</form>
 </table>
 </div>
 <div class="container container-fluid text-center" style="padding:10px">

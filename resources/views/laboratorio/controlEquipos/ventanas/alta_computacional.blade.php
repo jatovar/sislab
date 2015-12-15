@@ -137,10 +137,8 @@
 
 <thead>
   <tr>
-    <th colspan="5" rowspan="1">Códigos unicos de equipo</th>
-    <th colspan="2" rowspan="1">Seleccione número de eqipos
+    <th colspan="7" rowspan="1">Códigos unicos de equipo</th>
 
-  </th>
     <tr>
       <th >Ubicación</th>
       <th >Código Lab</th>

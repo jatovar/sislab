@@ -8,16 +8,29 @@
 </thead>
   <tbody>
   <tr>
-    <th >Código Lab</th>
-
-    <th>Número Inventario</th>
+    <th>Ubicación</th>
+    <th>Código Lab</th>
     <th>Fecha de Introdución</th>
 
   </tr>
     <tr>
+      <td>{{$i->labArea()->area}}</td>
       <td colspan="1">{{$i->codigo_lab}}</td>
-      <td>{{$i->codigo_uaslp_1}}</td>
       <td>{{$i->fecha_registro}}</td>
+    </tr>
+
+    <tr>
+      <th>Número Inventario 1</th>
+      <th>Número Inventario 2</th>
+      <th>Número Serie</th>
+
+    </tr>
+    <tr>
+      <td>{{$i->codigo_uaslp_1}}</td>
+      <td>{{$i->codigo_uaslp_2}}</td>
+      <td>{{$i->num_serie}}</td>
+
+
     </tr>
 
     <tr>

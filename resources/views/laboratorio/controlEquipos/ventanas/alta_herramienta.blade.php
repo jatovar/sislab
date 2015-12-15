@@ -125,7 +125,7 @@
 
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 style=""><span class="glyphicon glyphicon-lock"></span> Alta de equipo</h3>
+          <h3 style=""><span class="glyphicon glyphicon-lock"></span> Alta de herramienta</h3>
         </div>
 
       <div class="modal-body">
@@ -133,10 +133,8 @@
 
 <thead>
   <tr>
-    <th colspan="5" rowspan="1">Códigos unicos de equipo</th>
-    <th colspan="2" rowspan="1">Seleccione número de eqipos
+    <th colspan="7" rowspan="1">Códigos unicos de equipo</th>
 
-  </th>
     <tr>
       <th >Ubicación</th>
       <th >Código Lab</th>

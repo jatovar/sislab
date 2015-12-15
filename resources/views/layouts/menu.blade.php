@@ -2,7 +2,7 @@
 {!! Html::style('libs/bootstrap/css/menu.css') !!}
 <div class = "cont-menu">
 <ul class="nav navbar-nav  navbar-inverse" style="width:100%">
-    <li class="active"><a href="/sislab/public">Home</span></a></li>
+    <li class="active"><a href="/sislab/public">Bienvenido</span></a></li>
     <li  onclick="verSubmenu1()"  class="dropdown">
       <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
       Control de Alumnos<span class="caret"></span></a>

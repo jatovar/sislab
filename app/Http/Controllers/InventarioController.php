@@ -129,7 +129,9 @@ class InventarioController extends Controller
     }
     function guardarCambiosEquipo(Request $r)
     {
-      $item = InvItem::find(3);
+      $item = InvItem::find($r->input('id_item'));
+      $item->fill($r->all());
+      $item->save();
       return view('laboratorio.controlEquipos.tablasInventario.detalle', array('i' =>  $item));
     }
 

@@ -17,7 +17,7 @@
 
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 style=""><span class="glyphicon glyphicon-lock"></span> Consultas de Acceso</h3>
+          <h3 style=""><span class="glyphicon glyphicon-lock"></span> Consultas de Prestamo</h3>
         </div>
 
       <div class="modal-body">
