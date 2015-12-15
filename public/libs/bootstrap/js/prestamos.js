@@ -6,6 +6,9 @@ $('document').ready(function() {
       $("#"+id_area).css("background-color","#C3C3C3");
 
   });
+  $('#btnConsulta').click(function() {
+      $('#ModalConsultaPrestamo').modal('show');
+  });
 });
 
 function dameNombre(){
@@ -49,7 +52,8 @@ function dameNombre(){
 }
 function altaPrestamo()
 {
-  var data = $("#form").serialize() + "&id_area="+id_area + "&id_lab="+ID_LABORATORIO +"&page="+pagina;
+  var data = $("#form").serialize() + "&id_area="+id_area + "&id_lab="+ID_LABORATORIO +"&page="+pagina
+  alert(data);
   $.ajax({
     url: BASE_UR + "prestamo_equipo/alta",
     data: data,

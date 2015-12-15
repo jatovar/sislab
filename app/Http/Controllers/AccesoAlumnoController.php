@@ -21,7 +21,11 @@ class AccesoAlumnoController extends Controller
 
   public function __construct()
   {
+<<<<<<< HEAD
       $this->middleware('auth');
+=======
+    $this->middleware('auth');
+>>>>>>> be2ce22108f78b52447c4397a26a0ea870c72f53
   }
 
   function listaAcceso1(Request $r)
@@ -42,6 +46,8 @@ class AccesoAlumnoController extends Controller
 
   function listaAcceso()
   {
+    date_default_timezone_set("America/Mexico_City");
+
     $id_lab = Session::get('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
     $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
@@ -144,21 +150,40 @@ class AccesoAlumnoController extends Controller
   }
   function consultaAlumno(Request $r)
   {
-    if($r->input('op') == "frecuentes")
-    {
-
-
-    }
-    else
-    {
-
-
-    }
-    $clave = $r->input('cve_alumno');
     $id_lab = $r->input('id_lab');
+
+    $fechaIni = $r->input('fechaIni');
+    $fechaFin = $r->input('fechaFin');
+
+    $nuevafecha = strtotime ( '+1 day' , strtotime ( $fechaFin ));
+    $fechaFin = date ( 'Y-m-d' , $nuevafecha );
+    $fechaIni = date_format(date_create($fechaIni), 'Y-m-d');
+    $fechaFin = date_format(date_create($fechaFin), 'Y-m-d');
     $laboratorio = Laboratorio::find($id_lab);
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('cve_alumno',$clave)->paginate(10);
+    $entradas = "";
+    if($r->input('op') == "frecuentes")
+    {
+      $dato = $r->input('dato');
+      //$query = "SELECT count(`cve_alumno`) as `cant`,`cve_alumno` FROM `lab_entradas`,
+			//  `alumnos` where `cve_alumno` = `clave_unica` group by (`clave_unica`) order by `cant` desc limit 5";
+      //select count(`cve_alumno`) as `cant` from `lab_entradas` inner join `alumnos` on `alumnos`.`clave_unica` = `lab_entradas`.`cve_alumno`
+      // where `id_area` in (1, 2, 3, 4, 5, 6) group by `cve_alumno` order by `cant` desc limit 4 offset 0
+      $entradas = LabEntrada::whereIn('id_area',$labAreas)
+      ->where('fecha_entrada','>',$fechaIni)
+      ->where('fecha_entrada','<',$fechaFin)
+      ->join('alumnos', 'alumnos.clave_unica', '=', 'lab_entradas.cve_alumno')->groupBy('cve_alumno')
+      ->orderBy('duracion','desc')->skip($dato)->take($dato)->get();
+
+    }
+    else if($r->input('op') == "clave")
+    {
+      $clave = $r->input('dato');
+      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('cve_alumno','LIKE', '%'.$clave.'%')
+      ->where('fecha_entrada','>',$fechaIni)
+      ->where('fecha_entrada','<',$fechaFin)->get();
+
+    }
 
     return view('laboratorio.controlAlumnos.tablaConsulta',
                 array('laboratorio' => $laboratorio,'entradas' => $entradas));

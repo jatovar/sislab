@@ -6,6 +6,7 @@ use App\Models\LabArea;
 use App\Models\LabCategoriaInv;
 
 use App\Models\Laboratorio;
+use Session;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
@@ -45,8 +46,9 @@ class InventarioController extends Controller
     return view('laboratorio.controlEquipos.inventario', array('laboratorio' => $laboratorio,'categoria' =>  $labCategoria1 ));
 
     }
-    function listaEquipos($id_lab)
+    function listaEquipos()
     {
+      $id_lab = Session::get('id_lab');
       $laboratorio = Laboratorio::find($id_lab);
       $labCategoria1 = LabCategoriaInv::where('id_laboratorio',$id_lab)->orderBy('id_lab_categoria_inv')->first();
     /*  $clasificaciones = $labCategoria1->clasificaciones()->lists('id_clasificacion');
@@ -127,7 +129,9 @@ class InventarioController extends Controller
     }
     function guardarCambiosEquipo(Request $r)
     {
-      $item = InvItem::find(3);
+      $item = InvItem::find($r->input('id_item'));
+      $item->fill($r->all());
+      $item->save();
       return view('laboratorio.controlEquipos.tablasInventario.detalle', array('i' =>  $item));
     }
 

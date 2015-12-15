@@ -6,7 +6,7 @@ var pagina = 1;
 function verOpciones(t)
 {
   var y = (getOffset(t).top)-30;
-  var x = ($("#body").width()/2)-$("#Opciones").width()/2;
+  var x = ($("#contenido").width()/2)-$("#Opciones").width()/2;
   $("#Opciones").css('visibility','visible');
   $("#Opciones").css('top',y);
   $("#Opciones").css('left',x);
@@ -222,7 +222,7 @@ function seleccionaArea(t)
   if(t.id != id_area)
   {
     $("#"+t.id).css("background-color","#C3C3C3");
-    $("#"+id_area).css("background-color","white");
+    $("#"+id_area).css("background-color","#798D8F");
     id_area = t.id;
     dameEquipos();
   }

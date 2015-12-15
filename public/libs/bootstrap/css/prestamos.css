@@ -2,3 +2,26 @@
 {
   height: 350px;
 }
+#ModalConsultaPrestamo input[type='text']
+{
+  border-radius: 3px;
+  width: 120px;
+  height: 30px;
+  margin-left: 5px;
+  margin-right: 2px;
+}
+#ModalConsultaPrestamo .modal-dialog
+{
+  width: 900px;
+}
+
+#ModalConsultaPrestamo
+{
+  max-height: 650px;
+}
+#ModalConsultaPrestamo .modal-body
+{
+  min-height: 450px;
+  height: 450px;
+  overflow-y: scroll;
+}

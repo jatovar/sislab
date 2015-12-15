@@ -9,6 +9,10 @@
 <div class="SubTitulo">Mantenimiento de Equipos</div>
 
 <div id="Contenido">
+</br>
+<button type="button" class="btn btn-success btn-sm" id="boton">Nuevo</button>
+</br>
+</br>
 <table class="table table-hover table-hove table-striped table-condensed table-bordered table-header-group table-responsive ">
 <thead>
   <tr><th>Actividad</th>
@@ -69,9 +73,7 @@
   </tbody>
 
 </table>
-<div class="text-center">
-    <button type="button" class="btn btn-default btn-lg" id="boton">Nuevo mantenimiento</button>
-</div>
+
 </div>
 
 <div id="myModal" class="modal fade" role="dialog">

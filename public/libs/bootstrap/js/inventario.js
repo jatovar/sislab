@@ -106,11 +106,19 @@ function detalleEquipo(id_item)
 }
 function guardarCambiosEquipo(id_item)
 {
-  alert(id_item);
+
   var url = BASE_UR_INV +"inventarioGuardarCambios";
-  var data = {
-          id_item : id_item
-        };
+
+  var data =
+  {
+    id_item : id_item,
+    id_area : $('#id_area').val(),
+    codigo_lab: $('#codigo_lab').val(),
+    codigo_uaslp_1: $('#codigo_uaslp_1').val(),
+    codigo_uaslp_2: $('#codigo_uaslp_2').val(),
+    num_serie:  $('#num_serie').val(),
+    fecha_registro: $('#fecha_registro').val()
+  }
   $.ajax({
           data:  data,
           url:  url,
