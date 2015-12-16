@@ -74,4 +74,5 @@ Route::get('profesor/nombre','ProfesorController@dameNombre');
 
 Route::resource('becario','BecarioController');
 Route::resource('area','AreaController');
+Route::resource('labCategorias','LabCategoriaController');
 Route::get('/profesor','ProfesorController@admin');

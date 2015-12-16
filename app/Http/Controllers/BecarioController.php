@@ -45,37 +45,27 @@ class BecarioController extends Controller
      */
     public function store(Request $request)
     {
-      //echo "hola";
-    /*  $becario = Becario::create($request->all());
-      $becario->activo = 1;
-      $becario->password = bcrypt($becario->password);
-      $becario->save();*/
-
-
-            $res = ["success"=>false];
-            try {
-              Becario::create([
-                'cve_uaslp' => $request['cve_uaslp'],
-                'rpe' => $request['rpe'],
-                'password' =>  bcrypt($request['password']),
-                'activo' => '1',
-              ]);
-              LaboratorioBec::create([
-                'id_laboratorios' => Session::get('id_lab'),
-                'clave_uaslp' => $request['cve_uaslp'],
-                'id_semestre' => '1',
-                ]);
-              $res ["success"] = true;
-              $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
-              $res ["tipo"] = "success";
-            } catch (Exception $e) {
-              $res ["tipo"] = "danger";
-              $res ["msg"] = "Los datos son incorrectos";
-            }
-
-
-            return response()->json($res);
-
+      $res = ["success"=>false];
+      try {
+        Becario::create([
+          'cve_uaslp' => $request['cve_uaslp'],
+          'rpe' => $request['rpe'],
+          'password' =>  bcrypt($request['password']),
+          'activo' => '1',
+        ]);
+        LaboratorioBec::create([
+          'id_laboratorios' => Session::get('id_lab'),
+          'clave_uaslp' => $request['cve_uaslp'],
+          'id_semestre' => '1',
+          ]);
+        $res ["success"] = true;
+        $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
+        $res ["tipo"] = "success";
+      } catch (Exception $e) {
+        $res ["tipo"] = "danger";
+        $res ["msg"] = "Los datos son incorrectos";
+      }
+      return response()->json($res);
     }
 
     /**
@@ -88,10 +78,8 @@ class BecarioController extends Controller
     {
       $idlab = Session::get('id_lab');
       $lab = Laboratorio::find($idlab);
+      return view('becario.muestra',array('laboratorio' => $lab ));
 
-
-              return view('becario.muestra',array('laboratorio' => $lab ));
-        //
     }
 
     /**
@@ -123,8 +111,18 @@ class BecarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+      $res = ["success"=>false];
+      try {
+        $becario = Becario::where('cve_uaslp', $request->input('id'))->first();
+
+        $becario->activo = false;
+        $becario->save();
+          $res ["success"] = true;
+      } catch (Exception $e) {
+
+      }
+        return response()->json($res);
     }
 }

@@ -10,13 +10,11 @@ function registrarBecario(){
     type: 'POST',
     datatype: 'json',
     success: function (result){
-      //  alert(result);
       mostrarAlerta(result.msg,result.tipo);
       borrarDatos("formbecario");
-
     },
     error : function(xhr,ajaxOptions,thrownError){
-      //alert(xhr.status + ' ' + thrownError + '\n' );
+
     },
     traditional: true,
   });
@@ -36,21 +34,36 @@ function registrarArea(){
     type: 'POST',
     datatype: 'json',
     success: function (result){
-
-
       mostrarAlerta(result.msg,result.tipo);
-            borrarDatos("formArea")
-
+      borrarDatos("formArea")
     },
     error : function(xhr,ajaxOptions,thrownError){
-      //alert(xhr.status + ' ' + thrownError + '\n' );
+
     },
     traditional: true,
   });
 }
 
-function muestraConfirmacion(){
-  
+function muestraConfirmacion(id){
+  var r = confirm("¿Realmente deseas borrar el registro?");
+  if (r == true) {
+    var url = BASE_UR + "becario/destroy";
+    var data = {_method:"DELETE",id:id};
+    
+    $.ajax({
+      data: data,
+      url: url,
+      type: 'POST',
+      datatype: 'json',
+      success: function (result){
+                $("#Fila"+id).remove();
+      },
+      error : function(xhr,ajaxOptions,thrownError){
 
+      },
+      traditional: true,
+    });
+  } else {
 
+  }
 }
