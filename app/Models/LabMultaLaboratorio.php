@@ -3,7 +3,7 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
 
-class LabMultasLaboratorio extends Model{
+class LabMultaLaboratorio extends Model{
 
 	protected $table ='lab_multas_laboratorio';
 	protected $primaryKey = 'id';
@@ -21,6 +21,6 @@ class LabMultasLaboratorio extends Model{
 	{
 			return $this->hasOne('App\Models\LabTipoMulta','id_multa','id_multa')->first();
 	}
-	
+
 }
 ?>

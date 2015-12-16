@@ -6,7 +6,7 @@ class LaboratorioBec extends Model
 {
   protected $table = 'laboratorios_bec';
   #protected $primaryKey = 'id_laboratorios';
-  protected $fillable = ['id_laboratorios','clave_uaslp','id_semestre'];
+  protected $fillable = ['id_laboratorio','clave_uaslp','id_semestre'];
   function becario()
   {
       return $this->hasOne('App\Models\Becario','cve_uaslp','clave_uaslp')->first();
