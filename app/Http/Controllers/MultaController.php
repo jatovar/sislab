@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\LabMultaLaboratorio;
+use Session;
+use App\Models\Alumno;
+use App\Models\Laboratorio;
+use App\Models\InvObservacion;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Becario;
-use App\Models\Alumno;
-use Session;
-use App\Models\Laboratorio;
-use Illuminate\Contracts\Routing\ResponseFactory;
 
-class BecarioController extends Controller
+class MultaController extends Controller
 {
-  public function __construct(){
-
-      $this->middleware('auth');
-  }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +21,11 @@ class BecarioController extends Controller
      */
     public function index()
     {
-        //
+
+      $id_lab = Session::get('id_lab');
+      $laboratorio = Laboratorio::find($id_lab);
+      $multas = LabMultaLaboratorio::where('id_laboratorio',$id_lab);
+      return view('laboratorio.multas.multas', array('laboratorio' => $laboratorio, 'multas'=>$multas));
     }
 
     /**
@@ -34,7 +35,7 @@ class BecarioController extends Controller
      */
     public function create()
     {
-        return view('becario.create');
+
     }
 
     /**
@@ -45,32 +46,7 @@ class BecarioController extends Controller
      */
     public function store(Request $request)
     {
-      //echo "hola";
-    /*  $becario = Becario::create($request->all());
-      $becario->activo = 1;
-      $becario->password = bcrypt($becario->password);
-      $becario->save();*/
-
-
-            $res = ["success"=>false];
-            try {
-              Becario::create([
-                'cve_uaslp' => $request['cve_uaslp'],
-                'rpe' => $request['rpe'],
-                'password' =>  bcrypt($request['password']),
-                'activo' => '1',
-              ]);
-              $res ["success"] = true;
-              $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
-              $res ["tipo"] = "success";
-            } catch (Exception $e) {
-              $res ["tipo"] = "danger";
-              $res ["msg"] = "Los datos son incorrectos";
-            }
-
-
-            return response()->json($res);
-
+        //
     }
 
     /**
@@ -81,11 +57,6 @@ class BecarioController extends Controller
      */
     public function show($id)
     {
-      $idlab = Session::get('id_lab');
-      $lab = Laboratorio::find($idlab);
-
-        
-              return view('becario.muestra',array('laboratorio' => $lab ));
         //
     }
 

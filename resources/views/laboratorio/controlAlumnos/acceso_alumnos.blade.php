@@ -3,14 +3,12 @@
 @section('contenido')
 {!! Html::style('libs/bootstrap/css/acceso_alumnos.css') !!}
 {!! Html::script('libs/bootstrap/js/acceso_alumnos.js') !!}
-<div style="margin:10px" >
-  {{Session::get('laboratorio')}}
 <div class="SubTitulo">Acceso a Alumnos</div>
-<div  >
+</br>
     <button type="button" class="btn btn-default btn-sm btn-success" id="boton">Nuevo</button>
     <button type="button" class="btn btn-default btn-sm btn-success" id="btnConsulta">Consulta</button>
 
-</div>
+
 <div style="height:100%;margin-top:20px" onload="cargar()" class="Alumnos" >
 
     <div id="Tabla">
@@ -26,7 +24,7 @@
 
 
 </div>
-</div>
+
 @include('laboratorio.controlAlumnos.modalConsulta')
 
 
@@ -45,7 +43,6 @@
       <form id="form1" role="form">
           <div class="form-group" style="padding: 0px 0px;">
 
-      <span class="glyphicons glyphicons-user"></span>
       <label for="alumno"><span class="glyphicon glyphicon-user"></span> Datos del alumno </label>
        </br>
       {!!Form::Text('cve_alumno',null, array('id'=>'clave_alumno','class' => 'clave form-control','placeholder' => 'Clave alumno', 'onkeyup'=>'dameNombreAlumno()'))!!}

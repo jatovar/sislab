@@ -64,7 +64,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{!!URL::to('/becario')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
+                                    <a href="{!!URL::to('/becario/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Areas <span class="fa arrow"></span></a>

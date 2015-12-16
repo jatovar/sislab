@@ -12,6 +12,8 @@
 
       <th>Fecha Entrega</th>
 
+      </tr>
+
     </thead>
     <tbody>
       @foreach($prestamos as $p)
@@ -25,7 +27,6 @@
               @endif
             </td>
             <td>{{$p->nombreSolicitante()}}</td>
-            
             <td>{{$p->item()->codigo_lab}}</td>
             @if($p->item()->detalle()->clasificacion()->nombre == 'Computadora')
                 <td>{{$p->item()->detalle()->clasificacion()->nombre}}</td>
@@ -47,4 +48,3 @@
       @endforeach
     </tbody>
   </table>
-  {!!$prestamos->render()!!}

@@ -21,7 +21,7 @@ class Laboratorio extends Model
   }
   function multas()
   {
-    return $this->hasMany('App\Models\LabMultasLaboratorio','id_laboratorio','id_laboratorio')->get();
+    return $this->hasMany('App\Models\LabMultaLaboratorio','id_laboratorio','id_laboratorio')->get();
   }
   function areas()
   {
@@ -29,7 +29,7 @@ class Laboratorio extends Model
   }
   function becarios()
   {
-    return $this->hasMany('App\Models\LaboratorioBec','id_laboratorio','id_laboratorio')->get();
+    return $this->hasMany('App\Models\LaboratorioBec','id_laboratorios','id_laboratorio')->get();
   }
   function categoriaslab()
   {

@@ -5,13 +5,19 @@
 {!! Html::script('libs/bootstrap/js/prestamos.js') !!}
 
 <div class="SubTitulo">Prestamo de Equipos</div>
+</br>
+<button type="button" class="btn btn-success btn-sm" id="boton">Nuevo</button>
+<button type="button" class="btn btn-success btn-sm" id="btnConsulta">Consulta</button>
 
-<div id="TablaPrestamos" >
+
+</br>
+
+<div id="TablaPrestamos" style="margin-top:20px" >
   @include('laboratorio.tablaPrestamos')
 </div>
-<div class="text-center">
-    <button type="button" class="btn btn-default btn-lg" id="boton">Nuevo Prestamo</button>
-</div>
+
+@include('laboratorio.modalConsulta')
+
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -54,7 +60,7 @@
 
 
        </br>
-
+     </br>
      </br>
     <label for="equipo"><span class="glyphicon glyphicon glyphicon-align-left"></span> Descripción</label></br>
      {!!Form::Textarea('descripcion',null, array('id'=>'descripcion', 'class' => 'form-control', 'placeholder' => 'Descripción', 'size' => '48x3'))!!}
