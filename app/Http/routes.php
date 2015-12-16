@@ -45,8 +45,7 @@ Route::get('controlEquipos/items/','InventarioController@dameEquiposArea');
 
 
 
-Route::get('controlEquipos/mantenimientos','MantenimientoController@listaMantenimientos');
-Route::get('controlEquipos/mantenimiento/alta','MantenimientoController@altaMantenimiento');
+Route::resource('controlEquipos/mantenimientos','MantenimientoController');
 
 
 Route::get('controlAlumnos/acceso_alumnos/','AccesoAlumnoController@listaAcceso');
@@ -71,6 +70,7 @@ Route::get('invitem/nombre','InventarioController@dameNombreEquipo');
 Route::get('horario/materia','HorarioController@dameMateria');
 
 Route::get('profesor/nombre','ProfesorController@dameNombre');
+Route::resource('multas','MultaController');
 
 Route::resource('becario','BecarioController');
 Route::resource('area','AreaController');

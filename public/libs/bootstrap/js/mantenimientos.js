@@ -10,8 +10,8 @@ function seleccionaArea(t)
   }
 }
 $('document').ready(function() {
-  $('#boton').click(function() {
-      $('#myModal').modal('show');
+  $('#btnNuevoMant').click(function() {
+      $('#ModalMantenimiento').modal('show');
       $('#actividad').focus();
       $("#"+id_area).css("background-color","#C3C3C3");
 
@@ -24,14 +24,14 @@ function altaMantenimiento()
 {
   var data = $("#form").serialize() + "&id_area="+id_area;
   $.ajax({
-    url: BASE_UR + "controlEquipos/mantenimiento/alta",
+    url: BASE_UR + "controlEquipos/mantenimiento/store",
     data: data,
     dataType:'json',
     type:'get',
     success: function(data) {
       if(data.success)
       {
-        $('#myModal').modal('hide');
+        $('#ModalMantenimiento').modal('hide');
 
       }
       else {
