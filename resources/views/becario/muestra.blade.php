@@ -16,7 +16,7 @@
       </tr>
       </thead>
 
-    @foreach($laboratorio->becarios()  as $labbec)
+    @foreach($laboratorio-> becarios()  as $labbec)
     <tr>
       <td>
         {{$labbec->clave_uaslp}}
