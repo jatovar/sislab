@@ -10,7 +10,7 @@
         <li><a href="/sislab/public/controlAlumnos/acceso_alumnos">Acceso de Alumnos</a></li>
         <li><a href="/sislab/public/prestamo_equipos">Prestamo de equipo</a></li>
         <li><a href="#">Revisión de prácticas</a></li>
-        <li><a href="#">Multas</a></li>
+        <li><a href="/sislab/public/multas">Multas</a></li>
 
 
     </ul>

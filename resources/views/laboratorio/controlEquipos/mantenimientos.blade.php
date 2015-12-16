@@ -109,7 +109,7 @@
           </br>
           </br>
           <label for="equipo"><span class="glyphicon glyphicon glyphicon-align-left"></span> Descripción</label></br>
-            <textarea name="descripcion" rows="3" cols="40" type="text" class="form-control" id="descripcion" placeholder="" onkeyup="dameActividades()"></textarea>
+            <textarea name="descripcion" rows="3" cols="40" type="text" class="form-control" id="descripcion" placeholder="" ></textarea>
 
           </div>
         </form>
