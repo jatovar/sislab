@@ -6,7 +6,8 @@ class Alumno extends Model
 {
   protected $table = 'alumnos';
   protected $primaryKey = 'clave_unica';
-  protected $fillable = ['clave_unica','id_carrera','clave_asesor','clave_ing','nombre','ap_paterno','ap_materno','id_usuario','activo','email'];
+  protected $fillable = ['clave_unica','id_carrera','clave_asesor','clave_ing','nombre',
+  'ap_paterno','ap_materno','id_usuario','activo','email'];
   function nombreCompleto ()
   {
     return $this->ap_paterno." ".$this->ap_materno." ".$this->nombre;

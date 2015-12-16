@@ -12,7 +12,7 @@ class Profesor extends Model
   {
     return $this->hasMany('App\Models\Laboratorio','rpe_jefe','rpe')->get();
   }
-  function nombreCompleto ()
+  function nombreCompleto()
   {
     return $this->ap_paterno." ".$this->ap_materno." ".$this->nombre;
   }
