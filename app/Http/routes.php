@@ -64,7 +64,6 @@ Route::get('prestamo_equiposPaginacion/','PrestamoEquipoController@listaPrestamo
 Route::get('prestamo_equipo/alta','PrestamoEquipoController@registrarPrestamo');
 Route::get('prestamos/consulta','PrestamoEquipoController@consultaPrestamo');
 
-Route::resource('multas','MultaController');
 
 Route::get('alumno/nombre','AlumnoController@dameNombre');
 Route::get('invitem/nombre','InventarioController@dameNombreEquipo');
@@ -74,4 +73,5 @@ Route::get('horario/materia','HorarioController@dameMateria');
 Route::get('profesor/nombre','ProfesorController@dameNombre');
 
 Route::resource('becario','BecarioController');
+Route::resource('area','AreaController');
 Route::get('/profesor','ProfesorController@admin');

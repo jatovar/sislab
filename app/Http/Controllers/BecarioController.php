@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Becario;
-use App\Models\Alumno;
 use Session;
 use App\Models\Laboratorio;
+use App\Models\LaboratorioBec;
 use Illuminate\Contracts\Routing\ResponseFactory;
 
 class BecarioController extends Controller
@@ -60,6 +60,11 @@ class BecarioController extends Controller
                 'password' =>  bcrypt($request['password']),
                 'activo' => '1',
               ]);
+              LaboratorioBec::create([
+                'id_laboratorios' => Session::get('id_lab'),
+                'clave_uaslp' => $request['cve_uaslp'],
+                'id_semestre' => '1',
+                ]);
               $res ["success"] = true;
               $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
               $res ["tipo"] = "success";
@@ -84,7 +89,7 @@ class BecarioController extends Controller
       $idlab = Session::get('id_lab');
       $lab = Laboratorio::find($idlab);
 
-        
+
               return view('becario.muestra',array('laboratorio' => $lab ));
         //
     }

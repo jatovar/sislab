@@ -5,6 +5,7 @@ use App\Models\LabEntrada;
 use App\Models\LabPrestamoItem;
 use App\Models\Horario;
 use App\Models\Materia;
+use Session;
 use Carbon\Carbon;
 use App\Models\Laboratorio;
 use Illuminate\Contracts\Routing\ResponseFactory;
