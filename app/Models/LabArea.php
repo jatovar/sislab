@@ -4,16 +4,18 @@ use Ilumninate\Support\Facades\URL;
 
 class LabArea extends Model
 {
+  public $timestamps = false;
   protected $table = "lab_areas";
   protected $primaryKey = 'id_area';
   protected $fillable = ['id_area',
+                          'area',
                           'id_laboratorio',
-                          'id_capacidad',
+                          'capacidad',
                           'salon'
                         ];
   function idArea()
   {
-    return $this->id_area; 
+    return $this->id_area;
   }
   function laboratorio(){                                              //Foreingn_key, local_key
       return $this->hasOne('App\Models\Laboratorio','id_laboratorio','id_laboratorio')->first();

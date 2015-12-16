@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Becario;
 use Session;
+use App\Models\LabArea;
 use App\Models\Laboratorio;
-use App\Models\LaboratorioBec;
-use Illuminate\Contracts\Routing\ResponseFactory;
 
-class BecarioController extends Controller
+class AreaController extends Controller
 {
   public function __construct(){
 
@@ -34,7 +33,8 @@ class BecarioController extends Controller
      */
     public function create()
     {
-        return view('becario.create');
+        //
+        return view('area.create');
     }
 
     /**
@@ -45,37 +45,23 @@ class BecarioController extends Controller
      */
     public function store(Request $request)
     {
-      //echo "hola";
-    /*  $becario = Becario::create($request->all());
-      $becario->activo = 1;
-      $becario->password = bcrypt($becario->password);
-      $becario->save();*/
-
-
-            $res = ["success"=>false];
-            try {
-              Becario::create([
-                'cve_uaslp' => $request['cve_uaslp'],
-                'rpe' => $request['rpe'],
-                'password' =>  bcrypt($request['password']),
-                'activo' => '1',
-              ]);
-              LaboratorioBec::create([
-                'id_laboratorios' => Session::get('id_lab'),
-                'clave_uaslp' => $request['cve_uaslp'],
-                'id_semestre' => '1',
-                ]);
-              $res ["success"] = true;
-              $res ["msg"] = "El becario se ha registrado <strong>correctamente!</strong>";
-              $res ["tipo"] = "success";
-            } catch (Exception $e) {
-              $res ["tipo"] = "danger";
-              $res ["msg"] = "Los datos son incorrectos";
-            }
-
-
-            return response()->json($res);
-
+        $res = ["success"=>false];
+        try {
+          LabArea::create([
+            'area' => $request['area'],
+            'capacidad' => $request['capacidad'],
+            'salon' => $request['salon'],
+            'id_laboratorio' => Session::get('id_lab'),
+            ]);
+            $res ["success"] = true;
+            $res ["msg"] = "El Area se ha registrado <strong>correctamente!</strong>";
+            $res ["tipo"] = "success";
+        } catch (Exception $e) {
+          $res ["tipo"] = "danger";
+          $res ["msg"] = "Los datos son incorrectos";
+        }
+        return response()->json($res);
+        //
     }
 
     /**
@@ -86,11 +72,10 @@ class BecarioController extends Controller
      */
     public function show($id)
     {
-      $idlab = Session::get('id_lab');
-      $lab = Laboratorio::find($idlab);
+      $id_lab = Session::get('id_lab');
+      $lab = Laboratorio::find($id_lab);
 
-
-              return view('becario.muestra',array('laboratorio' => $lab ));
+      return view('area.muestra',array('laboratorio' => $lab ));
         //
     }
 
@@ -115,6 +100,8 @@ class BecarioController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
     }
 
     /**

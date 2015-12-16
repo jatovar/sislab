@@ -18,6 +18,10 @@
     {!! Html::script('libs/js/alertas.js') !!}
 
     {!! Html::script('libs/js/admin.js') !!}
+    {!!Html::script('libs/bootstrap/js/bootstrap.js')!!}
+
+
+
 
 </head>
 
@@ -64,37 +68,34 @@
                                 </li>
 
                                 <li>
-                                    <a href="{!!URL::to('/becario')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
+                                    <a href="{!!URL::to('/becario/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Becarios </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Areas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/area/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Areas </a>
+                                    <a href="{!!URL::to('/area/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Areas </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Categorias <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/categoria/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Categorias </a>
+                                    <a href="{!!URL::to('/categoria/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Categorias </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Tipo multas <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="create"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/multas/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="show"><i class='fa fa-list-ol fa-fw'></i> Mostrar Multas </a>
-                                </li>
-                                <li>
-                                    <a href="create"><i class='fa fa-minus fa-fw'></i> Baja Multa</a>
+                                    <a href="{!!URL::to('/multas/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Multas </a>
                                 </li>
                             </ul>
                         </li>
@@ -119,7 +120,7 @@
     {!!Html::script('libs/bootstrap/js/bootstrap.min.js')!!}
     {!!Html::script('libs/bootstrap/js/metisMenu.min.js')!!}
     {!!Html::script('libs/bootstrap/js/sb-admin-2.js')!!}
-    {!! Html::script('libs/bootstrap/js/principal.js') !!}
+    {!!Html::script('libs/bootstrap/js/principal.js') !!}
 
 </body>
 

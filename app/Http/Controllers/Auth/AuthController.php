@@ -100,7 +100,7 @@ class AuthController extends Controller
       return redirect($this->loginPath())
                ->withInput($request->only('cve_uaslp', 'remember'))
                ->withErrors([
-                   'cve_uaslp' => 'These credentials do not match our records.',
+                   'cve_uaslp' => 'Las credenciales son incorrectas (Clave/Password).',
                ]);
   }
 
