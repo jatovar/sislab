@@ -37,7 +37,6 @@ class PrestamoEquipoController extends Controller
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
     $items = InvItem::whereIn('id_area',$labAreas)->lists('id_item');
     $prestamos = LabPrestamoItem::whereIn('id_item',$items)->whereNull('fecha_entrega')->paginate(6);
-
     return view('laboratorio.tablaPrestamos',  array('prestamos' => $prestamos))->render();
   }
 

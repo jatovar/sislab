@@ -24,7 +24,7 @@ class MultaController extends Controller
 
       $id_lab = Session::get('id_lab');
       $laboratorio = Laboratorio::find($id_lab);
-      $multas = LabMultaLaboratorio::where('id_laboratorio',$id_lab);
+      $multas = LabMultaLaboratorio::where('id_laboratorio',$id_lab)->get();
       return view('laboratorio.multas.multas', array('laboratorio' => $laboratorio, 'multas'=>$multas));
     }
 

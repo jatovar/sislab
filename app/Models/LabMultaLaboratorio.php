@@ -1,5 +1,6 @@
 <?php namespace App\Models;
-
+use App\Models\Profesor;
+use App\Models\Becario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
 
@@ -11,7 +12,7 @@ class LabMultaLaboratorio extends Model{
 
 	function alumno()
 	{
-			return $this->hasOne('App\Models\LabAlumno','clave_unica','cve_alumno')->first();
+			return $this->hasOne('App\Models\Alumno','clave_unica','cve_alumno')->first();
 	}
 	function laboratorio()
 	{
@@ -21,6 +22,23 @@ class LabMultaLaboratorio extends Model{
 	{
 			return $this->hasOne('App\Models\LabTipoMulta','id_multa','id_multa')->first();
 	}
+	/***
+	*nombre de quien registro
+	*/
 
+	function nombreResponsable()
+	{
+		$bec = Becario::where('cve_uaslp',$this->rpe_registro)->first();
+		if($bec)
+		{
+			return $bec->alumno()->nombreCompleto();
+		}
+		$prof = Profesor::where('rpe',$this->rpe_registro)->first();
+		if($prof)
+		{
+			return $prof->nombreCompleto();
+		}
+		return "";
+	}
 }
 ?>
