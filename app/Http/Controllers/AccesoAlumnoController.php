@@ -28,13 +28,9 @@ class AccesoAlumnoController extends Controller
   function listaAcceso1(Request $r)
   {
 
-    $id_lab = $r->input('id_lab');
-    $laboratorio = Laboratorio::find($id_lab);
-    $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
+    $id_lab = Session::get('id_lab');
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('hora_salida','00:00:00')->paginate(8);
-    $claves_mat = Horario::whereIn('salon',$salones)->lists('clave_materia');
-    $materias = Materia::whereIn('clave_materia',$claves_mat)->get();
+    $entradas = LabEntrada::whereIn('id_area',$labAreas)->whereNull('hora_salida')->paginate(8);
 
     return view('laboratorio.controlAlumnos.tablaAcceso',  array('entradas' => $entradas))->render();
 
@@ -50,7 +46,8 @@ class AccesoAlumnoController extends Controller
     $laboratorio = Laboratorio::find($id_lab);
     $salones = LabArea::where('id_laboratorio',$id_lab)->lists('salon');
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-    $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('hora_salida','00:00:00')->paginate(8);
+    $entradas = LabEntrada::whereIn('id_area',$labAreas)->whereNull('hora_salida')->paginate(8);
+
     $claves_mat = Horario::whereIn('salon',$salones)->lists('clave_materia');
     $materias = Materia::whereIn('clave_materia',$claves_mat)->get();
   /**  $res = ['succes'=> false];
@@ -82,7 +79,6 @@ class AccesoAlumnoController extends Controller
       $entrada->fecha_entrada = $date;
       $entrada->hora_entrada = $date;
       $entrada->notas = $r->input('nota');
-
       if($r->input('codigo_lab')!="")
       {
         $prestamo = new LabPrestamoItem();
@@ -99,10 +95,10 @@ class AccesoAlumnoController extends Controller
 
       }
       $entrada->save();
-      $id_lab = $r->input('id_lab');
-      $laboratorio = Laboratorio::find($id_lab);
+      $id_lab = Session::get('id_lab');
       $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-      $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('fecha_salida','00:00:00')->paginate(8);
+      $entradas = LabEntrada::whereIn('id_area',$labAreas)->whereNull('hora_salida')->paginate(8);
+
 
       return view('laboratorio.controlAlumnos.tablaAcceso',  array('entradas' => $entradas))->render();
   }
@@ -113,7 +109,7 @@ class AccesoAlumnoController extends Controller
     try {
 
       $cve_alumno = $r->input('cve_alumno');
-      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->where('fecha_salida','00:00:00')->count();
+      $entradas = LabEntrada::where('cve_alumno',$cve_alumno)->whereNull('hora_salida')->count();
 
       $res['success'] = true;
       $res['registrado'] = false;
