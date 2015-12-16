@@ -9,7 +9,7 @@ class LaboratorioBec extends Model
   protected $fillable = ['id_laboratorios','clave_uaslp','id_semestre'];
   function becario()
   {
-      return $this->hasOne('App\Models\Becario','cve_uaslp','cve_uaslp')->first();
+      return $this->hasOne('App\Models\Becario','cve_uaslp','clave_uaslp')->first();
   }
   function laboratorio()
   {
@@ -19,7 +19,7 @@ class LaboratorioBec extends Model
   {
     return $this->hasOne('App\Models\Semestre','id_semestre','id_semestre')->first();
   }
-  
+
 
 }
  ?>

@@ -21,11 +21,9 @@ class AccesoAlumnoController extends Controller
 
   public function __construct()
   {
-<<<<<<< HEAD
+
       $this->middleware('auth');
-=======
-    $this->middleware('auth');
->>>>>>> be2ce22108f78b52447c4397a26a0ea870c72f53
+
   }
 
   function listaAcceso1(Request $r)

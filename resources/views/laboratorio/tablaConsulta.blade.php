@@ -12,6 +12,8 @@
 
       <th>Fecha Entrega</th>
 
+      </tr>
+
     </thead>
     <tbody>
       @foreach($prestamos as $p)
