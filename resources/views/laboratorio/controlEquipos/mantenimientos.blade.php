@@ -10,7 +10,7 @@
 
 <div id="Contenido">
 </br>
-<button type="button" class="btn btn-success btn-sm" id="boton">Nuevo</button>
+<button type="button" class="btn btn-success btn-sm" id="btnMantenimientos">Nuevo</button>
 </br>
 </br>
 <table class="table table-hover table-hove table-striped table-condensed table-bordered table-header-group table-responsive ">
@@ -76,7 +76,7 @@
 
 </div>
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="ModalMantenimiento" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
 

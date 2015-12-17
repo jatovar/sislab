@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Session;
+use App\Models\CategoriaInv;
+
 class LabCategoriaController extends Controller
 {
     public function __construct(){
@@ -30,7 +33,9 @@ class LabCategoriaController extends Controller
      */
     public function create()
     {
-        return view('labCategoria.create');
+
+        $categoria = CategoriaInv::get();
+        return view('labCategoria.create', array('categoria' => $categoria ));
     }
 
     /**
