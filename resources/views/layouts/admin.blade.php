@@ -83,10 +83,10 @@
                             <a href="#"><i class="fa fa-users fa-fw"></i> Categorias <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/categoria/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/labCategorias/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/categoria/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Categorias </a>
+                                    <a href="{!!URL::to('/labCategorias/show')!!}"><i class='fa fa-list-ol fa-fw'></i> Mostrar Categorias </a>
                                 </li>
                             </ul>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Tipo multas <span class="fa arrow"></span></a>

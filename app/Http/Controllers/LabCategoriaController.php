@@ -6,16 +6,16 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use Session;
-use App\Models\LabArea;
-use App\Models\Laboratorio;
+use App\Models\CategoriaInv;
 
-class AreaController extends Controller
+class LabCategoriaController extends Controller
 {
-  public function __construct(){
+    public function __construct(){
 
-      $this->middleware('auth');
-  }
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +33,9 @@ class AreaController extends Controller
      */
     public function create()
     {
-        return view('area.create');
+
+        $categoria = CategoriaInv::get();
+        return view('labCategoria.create', array('categoria' => $categoria ));
     }
 
     /**
@@ -44,22 +46,6 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $res = ["success"=>false];
-        try {
-          LabArea::create([
-            'area' => $request['area'],
-            'capacidad' => $request['capacidad'],
-            'salon' => $request['salon'],
-            'id_laboratorio' => Session::get('id_lab'),
-            ]);
-            $res ["success"] = true;
-            $res ["msg"] = "El Area se ha registrado <strong>correctamente!</strong>";
-            $res ["tipo"] = "success";
-        } catch (Exception $e) {
-          $res ["tipo"] = "danger";
-          $res ["msg"] = "Los datos son incorrectos";
-        }
-        return response()->json($res);
         //
     }
 
@@ -71,10 +57,6 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-      $id_lab = Session::get('id_lab');
-      $lab = Laboratorio::find($id_lab);
-
-      return view('area.muestra',array('laboratorio' => $lab ));
         //
     }
 
@@ -99,8 +81,6 @@ class AreaController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-
     }
 
     /**

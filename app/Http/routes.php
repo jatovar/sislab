@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/',['as' => 'home', 'uses'=> 'HomeController@index']);
 Route::get('home', 'HomeController@index');
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::get('auth/login', ['as' => 'login','uses' =>'Auth\AuthController@getLogin']);
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::get('auth/logout', ['as' => 'logout','uses' => 'Auth\AuthController@getLogout']);
 
 // Registration routes...
+///{!!Auth::logout(); Session::flush();!!}
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
@@ -74,6 +75,7 @@ Route::resource('multas','MultaController');
 
 Route::resource('becario','BecarioController');
 Route::resource('area','AreaController');
+Route::resource('labCategorias','LabCategoriaController');
 Route::get('/profesor','ProfesorController@admin');
 
 Route::resource('espacio','EspacioController');

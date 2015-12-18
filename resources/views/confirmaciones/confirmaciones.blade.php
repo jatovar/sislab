@@ -1,6 +1,6 @@
 
 
-<div id="confirm" class="modal hide fade">
+<div id="confirm" class=" modal-dialog modal-sm">
   <div class="modal-body">
     Are you sure?
   </div>
