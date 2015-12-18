@@ -8,7 +8,7 @@
       Control de Alumnos<span class="caret"></span></a>
       <ul  id="submenu1" class="dropdown-menu">
         <li><a href="/sislab/public/controlAlumnos/acceso_alumnos">Acceso de Alumnos</a></li>
-        <li><a href="/sislab/public/prestamo_equipos">Prestamo de equipo</a></li>
+        <li><a href="/sislab/public/prestamos">Prestamos</a></li>
         @if (Session::get('id_lab') != 1)
           <li><a href="#">Revisión de prácticas</a></li>
         @endif

@@ -1,7 +1,7 @@
 var pagina = 1;
 $('document').ready(function() {
-  $('#boton').click(function() {
-      $('#myModal').modal('show');
+  $('#btnPrestamo').click(function() {
+      $('#ModalPrestamo').modal('show');
       $('#clave_alumno').attr('autofocus',true);
       $("#"+id_area).css("background-color","#C3C3C3");
 
@@ -52,29 +52,23 @@ function dameNombre(){
 }
 function altaPrestamo()
 {
-  var data = $("#form").serialize() + "&id_area="+id_area + "&id_lab="+ID_LABORATORIO +"&page="+pagina
-  alert(data);
+  var data = $("#formPrestamo").serialize() + "&id_area="+id_area +"&page="+pagina;
   $.ajax({
-    url: BASE_UR + "prestamo_equipo/alta",
     data: data,
+    url: BASE_UR + "prestamos",
     dataType:'html',
-    type:'get',
+    type:'POST',
     success: function(data) {
 
-        $('#myModal').modal('hide');
+        $('#ModalPrestamo').modal('hide');
         $('#TablaPrestamos').html(data);
-        borrarDatos();
+        borrarDatos("formPrestamo");
     }
   });
 }
-function borrarDatos()
+function borrarDatos(id)
 {
-
-  $("#cve_solicitante").val("");
-  $("#nombre_solicitante").val("");
-  $("#codigo_lab").val("");
-  $("#nombre_equipo").val("");
-  $("#descripcion").val("");
+  document.getElementById(id).reset();
 }
 
 $(document).on('click','.pagination a', function(e)
@@ -82,15 +76,15 @@ $(document).on('click','.pagination a', function(e)
   e.preventDefault();
   pagina = $(this).attr('href').split('page=')[1];
   var data = {
-    id_lab: ID_LABORATORIO,
     page: pagina
   }
+  alert('2');
 
   $.ajax({
-    url: BASE_UR + "prestamo_equiposPaginacion",
+    url: BASE_UR + "prestamos/paginacion",
     data: data,
     dataType:'html',
-    type:'get',
+    type:'post',
     success: function(data) {
 
           $('#TablaPrestamos').html(data);

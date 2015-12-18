@@ -31,3 +31,26 @@ function dameNombreAlumno(){
       }
     });
 }
+function dameTipoMulta(){
+
+    multa = $('#tipo_multa').val();
+    var data = {
+      id_multa: multa
+    }
+    alert(multa);
+    $.ajax({
+      url: BASE_UR + "tipomulta/buscar",
+      data: data,
+      dataType:'json',
+      type:'get',
+      success: function(data) {
+        if(data.success)
+        {
+          $('#costo').val(data.costo);
+        }
+        else {
+          $('#costo').val("");
+        }
+      }
+    });
+}

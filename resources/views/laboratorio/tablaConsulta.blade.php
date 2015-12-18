@@ -27,12 +27,14 @@
               @endif
             </td>
             <td>{{$p->nombreSolicitante()}}</td>
-            <td>{{$p->item()->codigo_lab}}</td>
+            <td>  {{$p->item()->codigo_lab}}</td>
+
             @if($p->item()->detalle()->clasificacion()->nombre == 'Computadora')
                 <td>{{$p->item()->detalle()->clasificacion()->nombre}}</td>
             @else
               <td>{{$p->item()->detalle()->nombre}}</td>
             @endif
+
             <td>{{$p->rpe_presto}}</td>
             <td>
               @if($p->observacion())

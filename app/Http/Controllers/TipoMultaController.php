@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\InvItem;
-use App\Models\LabArea;
-use App\Models\Laboratorio;
-use Carbon\Carbon;
-use Session;
-use App\Models\LabMantenimiento;
+use App\Models\LabTipoMulta;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MantenimientoController extends Controller
+class TipoMultaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,12 +16,7 @@ class MantenimientoController extends Controller
      */
     public function index()
     {
-      $id_lab = Session::get('id_lab');
-      $laboratorio = Laboratorio::find($id_lab);
-      $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-      $mantenimientos = LabMantenimiento::whereIn('id_area',$labAreas)->get();
-      return view('laboratorio.controlEquipos.mantenimientos', array('laboratorio' => $laboratorio, 'mantenimientos' => $mantenimientos));
-
+        //
     }
 
     /**
@@ -45,25 +35,9 @@ class MantenimientoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $r)
+    public function store(Request $request)
     {
-        $res = ['success' => false];
-        try {
-          $date = Carbon::now();
-          $date->timezone("America/Mexico_City");
-          $mantenimiento = LabMantenimiento::create($r->all());
-          $mantenimiento->fecha_realizado = $date;
-
-          $mantenimiento->save();
-          $res['success'] = true;
-        } catch (Exception $e) {
-          $res['msj'] = $e->getMessage();
-        }
-        $id_lab = Session::get('id_lab');
-        $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
-        $mantenimientos = LabMantenimiento::whereIn('id_area',$labAreas)->get();
-        
-        return view('laboratorio.controlEquipos.tabla_mantenimientos', array('mantenimientos' => $mantenimientos));
+        //
     }
 
     /**
@@ -74,7 +48,7 @@ class MantenimientoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -109,5 +83,19 @@ class MantenimientoController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function buscar(Request $r)
+    {
+      $res = ['success' => false];
+      try {
+        $tipo_multa = LabTipoMulta::find($r->input('id_multa'));
+        $res['costo'] = $tipo_multa->costo;
+        $res['sancion'] = $tipo_multa->sancion;
+        $res['succes'] = true;
+      } catch (Exception $e) {
+        $res['msj'] = e.getMessage();
+      }
+      return response()->json($res);
+
     }
 }

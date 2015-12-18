@@ -22,25 +22,22 @@ $('document').ready(function() {
 });
 function altaMantenimiento()
 {
-  var data = $("#form").serialize() + "&id_area="+id_area;
+  var data = $("#formMantenimiento").serialize() + "&id_area="+id_area;
   $.ajax({
     url: BASE_UR + "controlEquipos/mantenimientos",
     data: data,
-    dataType:'json',
+    dataType:'html',
     type:'POST',
     success: function(data) {
-      alert(data);
-
-      if(data.success)
-      {
+        $('#TablaMantenimientos').html(data);
         $('#ModalMantenimiento').modal('hide');
+        borrarDatos("formMantenimiento");
+      }
 
-      }
-      else {
-        //$('#nombre_alumno').val("");
-        alert(data.msj);
-      }
-    }
+
   });
-
+}
+function borrarDatos(id)
+{
+    document.getElementById(id).reset();
 }

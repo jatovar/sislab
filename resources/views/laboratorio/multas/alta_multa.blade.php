@@ -9,7 +9,7 @@
         </div>
 
       <div class="modal-body">
-      <form id="form1" role="form">
+      <form id="formMulta" role="form">
           <div class="form-group" style="padding: 0px 0px;">
 
       <label for="alumno"><span class="glyphicon glyphicon-user"></span> Datos del alumno </label>
@@ -22,7 +22,7 @@
       </br>
       <label for="multa"><span class="glyphicon glyphicon-tower"></span>Multa</label></br>
 
-       {!!Form::Text('id_multa',null, array('list'=>'multas','id'=>'id_multa','class' => 'clave form-control','placeholder' => 'tipo multa','onkeyup'=>'dameNombreEquipo()','onchange'=>'dameNombreEquipo()'))!!}
+       {!!Form::Text('tipo_multa',null, array('list'=>'multas','id'=>'tipo_multa','class' => 'clave form-control','placeholder' => 'tipo multa','onkeyup'=>'dameTipoMulta()','onchange'=>'dameTipoMulta()'))!!}
 
        <datalist id="multas">
          @foreach($laboratorio->tiposMultas() as $tm)
@@ -35,6 +35,7 @@
        </br>
        </br>
 
+     </br>
 
      <label><span class="glyphicon glyphicon glyphicon-align-left"></span> Nota</label></br>
      {!!Form::Textarea('nota',null, array('id'=>"nota",'class' => 'form-control', 'placeholder' => 'Nota especial', 'size' => '48x2'))!!}
