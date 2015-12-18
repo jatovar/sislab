@@ -1,22 +1,22 @@
 @extends('layouts.layout')
 @extends('layouts.menu')
 @section('contenido')
+{!! Html::style('libs/css/Mover.css') !!}
 {!! Html::style('libs/bootstrap/css/acceso_alumnos.css') !!}
 {!! Html::script('libs/bootstrap/js/acceso_alumnos.js') !!}
 <div class="SubTitulo">Acceso a Alumnos</div>
 </br>
     <button type="button" class="btn btn-default btn-sm btn-success" id="boton">Nuevo</button>
     <button type="button" class="btn btn-default btn-sm btn-success" id="btnConsulta">Consulta</button>
-
-
 <div style="height:100%;margin-top:20px" onload="cargar()" class="Alumnos" >
 
     <div id="Tabla">
       @include('laboratorio.controlAlumnos.tablaAcceso')
     </div>
 
+
     <div id="Opciones" class="Opciones text-center" ><a onclick="cerrarOpciones()"> X</a></br>
-      <div class="btn btn-success">Prestamo</div>
+      <div id="prestamos" class="btn btn-success">Prestamo</div>
       <div class="btn btn-success">Revisar Práctica</div>
       <div class="btn btn-success">Multa</div>
       <div class="btn btn-danger" onclick="bajaRegistro()">Baja</div>
@@ -24,8 +24,15 @@
 
 
 </div>
+<div>
+  <div id="Daniel" class="modal fade" role="dialog">
+
+  </div>
+</div>
 
 @include('laboratorio.controlAlumnos.modalConsulta')
+
+
 
 
 <div id="myModal" class="modal fade" role="dialog">

@@ -1,0 +1,17 @@
+.Columnas
+{
+  float:left;
+  border: 2px solid black;
+  cursor:move;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+.Columnas.over
+{
+  border: 2px dotted black;
+}
+.Columnas .renglon
+{
+  border: 1px dotted black;
+  
+}

@@ -6,24 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Session;
+
 use App\Models\LabArea;
-use App\Models\Laboratorio;
 
-class AreaController extends Controller
+class EspacioController extends Controller
 {
-  public function __construct(){
-
-      $this->middleware('auth');
-  }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+      $Id = $req->input("id_area");
+      $Laboratorio = LabArea::where("id_area",$Id)->first();
+      $res = $Laboratorio->capacidad;
+      return view("laboratorio.controlAlumnos.Modal_Espacios",array("cantidad" => $res));
     }
 
     /**
@@ -33,7 +31,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        return view('area.create');
+        //
     }
 
     /**
@@ -44,22 +42,6 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        $res = ["success"=>false];
-        try {
-          LabArea::create([
-            'area' => $request['area'],
-            'capacidad' => $request['capacidad'],
-            'salon' => $request['salon'],
-            'id_laboratorio' => Session::get('id_lab'),
-            ]);
-            $res ["success"] = true;
-            $res ["msg"] = "El Area se ha registrado <strong>correctamente!</strong>";
-            $res ["tipo"] = "success";
-        } catch (Exception $e) {
-          $res ["tipo"] = "danger";
-          $res ["msg"] = "Los datos son incorrectos";
-        }
-        return response()->json($res);
         //
     }
 
@@ -71,10 +53,6 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-      $id_lab = Session::get('id_lab');
-      $lab = Laboratorio::find($id_lab);
-
-      return view('area.muestra',array('laboratorio' => $lab ));
         //
     }
 
@@ -99,8 +77,6 @@ class AreaController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-
     }
 
     /**
