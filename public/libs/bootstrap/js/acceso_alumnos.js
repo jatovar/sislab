@@ -2,8 +2,10 @@ var id_entrada = 0;
 var ant = "";
 var color = "";
 var id_area = 1;
+var area_espacio = 0;
+
 var pagina = 1;
-function verOpciones(t)
+function verOpciones(t, es)
 {
   var y = (getOffset(t).top)-30;
   var x = ($("#contenido").width()/2)-$("#Opciones").width()/2;
@@ -11,6 +13,7 @@ function verOpciones(t)
   $("#Opciones").css('top',y);
   $("#Opciones").css('left',x);
   id_entrada = t.id;
+  area_espacio = es;
 
   if(ant!="")
   {
@@ -69,6 +72,11 @@ $('document').ready(function() {
   $('#btnConsulta').click(function() {
       $('#ModalConsulta').modal('show');
   });
+  //----------------------
+  $('#prestamos').click(function() {
+      ConsultaEspacios();
+  });
+  //---------------------
   $("#equipos").bind('select',function(){
     alert("sss");
   });
@@ -144,6 +152,25 @@ function altaRegistro()
     });
   }
 }
+//------------------------------------
+function ConsultaEspacios()
+{
+    var data = {id_area:area_espacio};
+    $.ajax({
+      url: BASE_UR + "espacio",
+      data: data,
+      dataType:'html',
+      type:'get',
+      success: function(data) {
+        {
+          $('#Daniel').html(data);
+          $('#Daniel').modal('show');
+          //borrarDatos();
+        }
+      }
+    });
+}
+//--------------------------------
 function altaPrestamo()
 {
   var id_prestamo = 'NULL';

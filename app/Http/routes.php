@@ -75,3 +75,5 @@ Route::resource('multas','MultaController');
 Route::resource('becario','BecarioController');
 Route::resource('area','AreaController');
 Route::get('/profesor','ProfesorController@admin');
+
+Route::resource('espacio','EspacioController');

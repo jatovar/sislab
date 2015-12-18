@@ -1,31 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\LabMultaLaboratorio;
-use Session;
-use App\Models\Alumno;
-use App\Models\Laboratorio;
-use App\Models\InvObservacion;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class MultaController extends Controller
+use App\Models\LabArea;
+
+class EspacioController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-
-      $id_lab = Session::get('id_lab');
-      $laboratorio = Laboratorio::find($id_lab);
-      $multas = LabMultaLaboratorio::where('id_laboratorio',$id_lab)->get();
-      return view('laboratorio.multas.multas', array('laboratorio' => $laboratorio, 'multas'=>$multas));
+      $Id = $req->input("id_area");
+      $Laboratorio = LabArea::where("id_area",$Id)->first();
+      $res = $Laboratorio->capacidad;
+      return view("laboratorio.controlAlumnos.Modal_Espacios",array("cantidad" => $res));
     }
 
     /**
@@ -35,7 +31,7 @@ class MultaController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
