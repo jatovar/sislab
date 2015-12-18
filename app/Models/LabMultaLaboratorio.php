@@ -9,6 +9,7 @@ class LabMultaLaboratorio extends Model{
 	protected $table ='lab_multas_laboratorio';
 	protected $primaryKey = 'id';
   protected $filltable=['id','cve_alumno','id_laboratorio','id_multa','fecha','estado','fecha_pago','rpe_registro','monto_pago'];
+	public $timestamps = false;
 
 	function alumno()
 	{

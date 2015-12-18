@@ -53,7 +53,7 @@ class MantenimientoController extends Controller
           $date->timezone("America/Mexico_City");
           $mantenimiento = LabMantenimiento::create($r->all());
           $mantenimiento->fecha_realizado = $date;
-
+          $mantenimiento->cve_responsable = Session::get('clave');
           $mantenimiento->save();
           $res['success'] = true;
         } catch (Exception $e) {
@@ -62,7 +62,7 @@ class MantenimientoController extends Controller
         $id_lab = Session::get('id_lab');
         $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
         $mantenimientos = LabMantenimiento::whereIn('id_area',$labAreas)->get();
-        
+
         return view('laboratorio.controlEquipos.tabla_mantenimientos', array('mantenimientos' => $mantenimientos));
     }
 

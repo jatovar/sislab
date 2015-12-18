@@ -86,7 +86,7 @@ class AuthController extends Controller
 
       $credentials = $request->only('cve_uaslp', 'password');
       $clave =   $request->only('cve_uaslp');
-      $id_lab = LaboratorioBec::select('id_laboratorios')->where('clave_uaslp',$clave)->lists('id_laboratorios')->first();
+      $id_lab = LaboratorioBec::select('id_laboratorios')->where('clave_uaslp', $clave['cve_uaslp'])->lists('id_laboratorios')->first();
 
 
       $lab = Laboratorio::find($id_lab);
@@ -95,6 +95,7 @@ class AuthController extends Controller
       if (Auth::attempt($credentials, $request->has('remember'))) {
         //$_SESSION['laboratorio'] = $lab;
         Session::put('laboratorio', $lab->laboratorio);
+        Session::put('clave', $clave['cve_uaslp']);
         Session::put('id_lab', $id_lab);
 
         return redirect()->intended($this->redirectPath());

@@ -6,7 +6,9 @@
       <th>Nombre Solicitante</th>
       <th>Codigo Equipo</th>
       <th>Nombre Equipo</th>
-      <th>Clave de responsable</th>
+      <th>Clave del prestador</th>
+      <th>Nombre del prestador</th>
+
       <th>Observacion</th>
       <th>Fecha Prestamo</th>
 
@@ -25,7 +27,7 @@
               @endif
             </td>
             <td>{{$p->nombreSolicitante()}}</td>
-            
+
             <td>{{$p->item()->codigo_lab}}</td>
             @if($p->item()->detalle()->clasificacion()->nombre == 'Computadora')
                 <td>{{$p->item()->detalle()->clasificacion()->nombre}}</td>
@@ -33,15 +35,15 @@
               <td>{{$p->item()->detalle()->nombre}}</td>
             @endif
             <td>{{$p->rpe_presto}}</td>
+            <td>{{$p->nombrePresto()}}</td>
+
             <td>
               @if($p->observacion())
                 {{$p->observacion()->observacion}}
               @endif
             </td>
             <td>{{$p->fecha_prestamo  }}</td>
-
             <td>{{$p->fecha_entrega}}</td>
-
 
         </tr>
       @endforeach

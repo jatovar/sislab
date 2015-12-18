@@ -11,13 +11,9 @@
 
 <div style="height:100%;margin-top:20px" onload="cargar()" class="Alumnos" >
 
-    <div id="Tabla">
+    <div id="TablaMulta">
       @include('laboratorio.multas.tablaMultas')
     </div>
-    <div id="Opciones" class="Opciones text-center" ><a onclick="cerrarOpciones()">X</a></br>
-      <div class="btn btn-danger" onclick="bajaRegistro()">Baja</div>
-    </div>
-
 
 </div>
 @include('laboratorio.multas.alta_multa')

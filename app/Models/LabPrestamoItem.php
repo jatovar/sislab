@@ -1,5 +1,4 @@
 <?php namespace App\Models;
-use App\Models\Alumno;
 use Illuminate\Database\Eloquent\Model;
 
 class LabPrestamoItem extends Model{
@@ -38,6 +37,20 @@ class LabPrestamoItem extends Model{
         $nombre = $profesor->nombreCompleto();
       }
       return $nombre;
+    }
+    function nombrePresto()
+    {
+      $bec = Becario::where('cve_uaslp',$this->rpe_presto)->first();
+      if($bec)
+      {
+        return $bec->alumno()->nombreCompleto();
+      }
+      $prof = Profesor::where('rpe',$this->rpe_presto)->first();
+      if($prof)
+      {
+        return $prof->nombreCompleto();
+      }
+      return "";
     }
 }
 ?>

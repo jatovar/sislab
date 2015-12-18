@@ -10,23 +10,27 @@
     <th class="nota">Fecha Pago/Reposición</th>
     <th class="tiempo">Clave quien registro</th>
     <th class="tiempo">Nombre quien registro</th>
-
+  </tr>
   </thead>
 
     <tbody id="tbody" style="height:300px;max-height:400px">
       @foreach($multas as $m)
+      <tr>
         <td>{{$m->cve_alumno}}</td>
         <td>{{$m->alumno()->nombreCompleto()}}</td>
+        @if($m->tipoMulta())
         <td>{{$m->tipoMulta()->multa}}</td>
         <td>${{$m->tipoMulta()->costo}}</td>
+        @else
+        <td></td>
+        <td></td>
+        @endif
         <td>{{$m->fecha}}</td>
         <td>{{$m->estado}}</td>
         <td>{{$m->fecha_pago}}</td>
         <td>{{$m->rpe_registro}}</td>
-
         <td>{{$m->nombreResponsable()}}</td>
-
-
+      </tr>
 
 
       @endforeach

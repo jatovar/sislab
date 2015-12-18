@@ -78,6 +78,7 @@ class PrestamoController extends Controller
         {
           $prestamo->id_item = $invitem->id_item;
         }
+        $prestamo->rpe_presto = Session::get('clave');
         $prestamo->save();
         $res['success']= true;
         $res ['id_prestamo'] = $prestamo->id_prestamo;

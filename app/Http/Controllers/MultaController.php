@@ -5,6 +5,8 @@ use App\Models\LabMultaLaboratorio;
 use Session;
 use App\Models\Alumno;
 use App\Models\Laboratorio;
+use App\Models\LabTipoMulta;
+
 use App\Models\InvObservacion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -21,6 +23,7 @@ class MultaController extends Controller
      */
     public function index()
     {
+
 
       $id_lab = Session::get('id_lab');
       $laboratorio = Laboratorio::find($id_lab);
@@ -47,6 +50,25 @@ class MultaController extends Controller
     public function store(Request $request)
     {
         //
+        $id_lab = Session::get('id_lab');
+        $clave = Session::get('clave');
+        $date = Carbon::now();
+        $multa = new LabMultaLaboratorio();
+        $multa->cve_alumno = $request->input('cve_alumno');
+        $multa->id_laboratorio = $id_lab;
+        $multa->fecha = $date;
+        $tipo_multa = LabTipoMulta::where('multa',$request->input('tipo_multa'))->where('id_laboratorio',$id_lab)->first();
+        if($tipo_multa)
+        {
+          $multa->id_multa = $tipo_multa->id_multa;
+        }
+        $multa->rpe_registro = $clave;
+        //$multa->nota = $request->input('nota');
+        $multa->save();
+
+        $multas = LabMultaLaboratorio::where('id_laboratorio',$id_lab)->get();
+        return view('laboratorio.multas.tablaMultas', array('multas'=>$multas));
+
     }
 
     /**

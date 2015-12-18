@@ -78,7 +78,6 @@ $(document).on('click','.pagination a', function(e)
   var data = {
     page: pagina
   }
-  alert('2');
 
   $.ajax({
     url: BASE_UR + "prestamos/paginacion",

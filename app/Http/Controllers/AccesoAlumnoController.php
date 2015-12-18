@@ -19,10 +19,7 @@ class AccesoAlumnoController extends Controller
 {
   public function __construct()
   {
-
       $this->middleware('auth');
-
-
   }
 
   function listaAcceso1(Request $r)
@@ -145,7 +142,7 @@ class AccesoAlumnoController extends Controller
   {
 
     $clave = $r->input('cve_alumno');
-    $id_lab = $r->input('id_lab');
+    $id_lab = Session::get('id_lab');
     $laboratorio = Laboratorio::find($id_lab);
     $labAreas = LabArea::where('id_laboratorio',$id_lab)->lists('id_area');
     $entradas = LabEntrada::whereIn('id_area',$labAreas)->where('cve_alumno',$clave)->paginate(10);

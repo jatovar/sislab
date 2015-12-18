@@ -32,5 +32,19 @@ class LabMantenimiento extends Model
   {
     return $this->hasMany('App\Models\LabMantenimientoItem','id_lab_mantenimiento','id_mantenimiento')->get();
   }
+  function nombreResponsable()
+  {
+    $bec = Becario::where('cve_uaslp',$this->cve_responsable)->first();
+    if($bec)
+    {
+      return $bec->alumno()->nombreCompleto();
+    }
+    $prof = Profesor::where('rpe',$this->cve_responsable)->first();
+    if($prof)
+    {
+      return $prof->nombreCompleto();
+    }
+    return "";
+  }
 }
 ?>

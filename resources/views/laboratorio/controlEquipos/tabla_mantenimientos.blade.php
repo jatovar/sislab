@@ -4,7 +4,7 @@
   <th>Area</th>
   <th>Codigo Equipo</th>
   <th>Nombre Equipo</th>
-  <th>Tipo Responsable</th>
+  <th>Clave Responsable</th>
   <th>Nombre Responsable</td>
   <th>Descripción</th>
   <th>Fecha Realizado</th></tr>
@@ -45,8 +45,9 @@
           echo "<td rowspan=\"1\">".$m->labArea()->area."</td>";
           echo "<td></td>";
             echo "<td></td>";
-        echo "<td rowspan=\"1\">".$m->tipo_responsable."</td>";
         echo "<td rowspan=\"1\">".$m->cve_responsable."</td>";
+
+        echo "<td rowspan=\"1\">".$m->nombreResponsable()."</td>";
         echo "<td rowspan=\"1\">".$m->descripcion."</td>";
         echo "<td rowspan=\"1\">".$m->fecha_realizado."</td>";
         echo "</tr>";

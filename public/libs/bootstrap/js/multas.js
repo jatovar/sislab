@@ -34,23 +34,47 @@ function dameNombreAlumno(){
 function dameTipoMulta(){
 
     multa = $('#tipo_multa').val();
-    var data = {
-      id_multa: multa
-    }
-    alert(multa);
-    $.ajax({
-      url: BASE_UR + "tipomulta/buscar",
-      data: data,
-      dataType:'json',
-      type:'get',
-      success: function(data) {
-        if(data.success)
-        {
-          $('#costo').val(data.costo);
-        }
-        else {
-          $('#costo').val("");
-        }
+    if(multa!="")
+    {
+      var data = {
+        multa: multa
       }
-    });
+      $.ajax({
+        url: BASE_UR + "tipomulta/buscar",
+        data: data,
+        dataType:'json',
+        type:'get',
+        success: function(data) {
+
+          if(data.success)
+          {
+            $('#costo').val(data.costo);
+          }
+          else {
+            $('#costo').val("");
+          }
+        }
+      });
+    }
+}
+function altaMulta()
+{
+  var data = $("#formMulta").serialize();
+  alert(data);
+  $.ajax({
+    data: data,
+    url: BASE_UR + "multas",
+    dataType:'html',
+    type:'POST',
+    success: function(data) {
+
+        $('#ModalMulta').modal('hide');
+        $('#TablaMulta').html(data);
+        borrarDatos("formMulta");
+    }
+  });
+}
+function borrarDatos(id)
+{
+  document.getElementById(id).reset();
 }

@@ -46,7 +46,7 @@
 
       </div>
       <!-- dialog buttons -->
-      <div class="modal-footer"><button type="button" class="btn btn-primary" onclick="altaRegistro()" >OK</button></div>
+      <div class="modal-footer"><button type="button" class="btn btn-primary" onclick="altaMulta()" >Guardar</button></div>
 
     </div>
   </div>

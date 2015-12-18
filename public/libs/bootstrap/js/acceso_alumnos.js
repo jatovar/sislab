@@ -45,7 +45,6 @@ $(document).on('click','.pagination a', function(e)
   e.preventDefault();
   pagina = $(this).attr('href').split('page=')[1];
   var data = {
-    id_lab: ID_LABORATORIO,
     page: pagina
   }
 
@@ -135,7 +134,7 @@ function altaRegistro()
   if(($("#clave_alumno").val()) !="")
   {
     codigo = $("#codigo_lab").val();
-    var data = $("#form1").serialize() + "&id_area="+id_area + "&codigo_lab="+codigo + "&id_lab="+ID_LABORATORIO+"&page="+pagina;
+    var data = $("#form1").serialize() + "&id_area="+id_area + "&codigo_lab="+codigo + "&page="+pagina;
 
     $.ajax({
       url: BASE_UR + "controlAlumno/registrar_acceso",
