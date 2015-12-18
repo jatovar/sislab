@@ -2,6 +2,7 @@
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent;
+use Session;
 
 
 /**
@@ -10,10 +11,28 @@ use Illuminate\Database\Eloquent;
 class HomeController extends Controller
 {
 
+
   public function __construct(){
-    $this->middleware('auth');
+   $id_lab = Session::get('id_lab');
+
+    if ($id_lab != null)
+        $this->middleware('auth');
   }
   public function index(){
-    return view('laboratorio.index');
+       $id_lab = Session::get('id_lab');
+    switch ($id_lab) {
+      case '1':
+              return view('home.homeudicei');
+        break;
+
+      default:
+              return view('home.home');
+        break;
+    }
+
+  }
+  public function cerrarSession()
+  {
+
   }
 }
