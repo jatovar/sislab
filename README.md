@@ -1,6 +1,3 @@
 # sislab
 
-CAMBIO
-Jorge
-DANIEL
 
